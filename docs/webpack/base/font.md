@@ -63,7 +63,7 @@ console.log(sum(1, 2, 3, 4));
 
 ## 3. 配置
 
-```js{47-53}
+```js{47-55}
 const path = require("path");
 
 module.exports = {
@@ -112,10 +112,12 @@ module.exports = {
       },
       {
         test: /\.(ttf|woff2?)$/,
+        // type: "asset"时，会对小于10kb的文件进行base64处理
+        // 字体文件是不需要转的，使用type: "asset/resource"时，不会进行base64处理，直接输出，相当于file-loader
         type: "asset/resource",
         generator: {
-          filename: "static/media/[hash:8][ext][query]",
-        },
+          filename: "static/media/[hash:10][ext][query]"
+        }
       },
     ],
   },
@@ -136,3 +138,5 @@ npx webpack
 ```
 
 打开 index.html 页面查看效果
+
+![](/imgs/base/font.png)

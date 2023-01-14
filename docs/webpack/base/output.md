@@ -2,12 +2,13 @@
 
 ## 1. 配置
 
-```js{7,37-44}
+```js{8,37-44}
 const path = require("path");
 
 module.exports = {
   entry: "./src/main.js",
   output: {
+    // 所有文件的输出目录
     path: path.resolve(__dirname, "dist"),
     filename: "static/js/main.js", // 将 js 文件输出到 static/js 目录中
   },

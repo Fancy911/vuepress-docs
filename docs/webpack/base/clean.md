@@ -2,7 +2,7 @@
 
 ## 1. 配置
 
-```js{8}
+```js{8-10}
 const path = require("path");
 
 module.exports = {
@@ -10,7 +10,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "static/js/main.js",
-    clean: true, // 自动将上次打包目录资源清空
+    // 每次打包前清除 dist 目录
+    // 原理：在打包之前，先path整个目录清空，再进行打包
+    clean: true, 
   },
   module: {
     rules: [

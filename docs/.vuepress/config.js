@@ -37,6 +37,10 @@ export default defineUserConfig({
                 link: '/jest/',
             },
             {
+                text: '前端读书',
+                link: '/books/',
+            },
+            {
                 text: 'LeetCode',
                 link: '/leetcode/',
             },
@@ -117,16 +121,22 @@ export default defineUserConfig({
                     ],
                 },
             ],
-            '/project/': [
+            '/eslint/': [
                 {
                     text: 'Guide2',
-                    children: ['/project/2.md'],
+                    children: ['/eslint/2.md'],
                 },
             ],
-            '/origin/': [
+            '/jest/': [
                 {
                     text: 'Guide3',
-                    children: ['/origin/3.md'],
+                    children: ['/jest/3.md'],
+                },
+            ],
+            '/books/': [
+                {
+                    text: 'Guide3',
+                    children: ['/books/3.md'],
                 },
             ],
             '/leetcode/': [

@@ -11,6 +11,7 @@
 2. output（输出）
 
 指示 Webpack 打包完的文件输出到哪里去，如何命名等
+(不指定时，会默认输出一个地址，但不建议这样)
 
 3. loader（加载器）
 
@@ -84,9 +85,12 @@ module.exports = {
 
 2. 运行指令
 
-```:no-line-numbers
+有了以上`webpack.config.js`这一配置文件后，npx命令就变的简单了。
+
+```:shell
 npx webpack
 ```
+即，运行该命令时，会在当前目录下，寻找`webpack.config.js`这个文件，读取里面的配置，并执行当前配置的打包操作。
 
 此时功能和之前一样，也不能处理样式资源
 
@@ -94,4 +98,4 @@ npx webpack
 
 Webpack 将来都通过 `webpack.config.js` 文件进行配置，来增强 Webpack 的功能
 
-我们后面会以两个模式来分别搭建 Webpack 的配置，先进行开发模式，再完成生产模式
+我们后面会以`development`和`production`两个模式，来分别搭建 Webpack 的配置，先进行开发模式，再完成生产模式

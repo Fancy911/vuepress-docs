@@ -5,6 +5,8 @@
 ## 介绍
 
 Webpack 本身是不能识别样式资源的，所以我们需要借助 Loader 来帮助 Webpack 解析样式资源
+如果未安装css loader等，直接引入css文件进行打包，会报错。
+![css打包报错](/imgs/base/csserror.png)
 
 我们找 Loader 都应该去官方文档中找到对应的 Loader，然后使用
 
@@ -31,7 +33,7 @@ npm i css-loader style-loader -D
 
 ### 3. 配置
 
-```js{11-16}
+```js{11-21}
 const path = require("path");
 
 module.exports = {
@@ -42,12 +44,17 @@ module.exports = {
   },
   module: {
     rules: [
+      // loader的配置
       {
-        // 用来匹配 .css 结尾的文件
-        test: /\.css$/,
-        // use 数组里面 Loader 执行顺序是从右到左
-        use: ["style-loader", "css-loader"],
-      },
+          // 匹配以.css结尾的文件
+          test: /\.css$/,  
+          // 使用哪些loader进行处理
+          // 执行顺序：从右到左，从下到上
+          use: [
+              "style-loader", // 将js中css通过创建style标签，将js中的样式资源插入进行，添加到head中生效
+              "css-loader", // 将css文件变成commonjs模块加载到js中，里面内容是样式字符串
+          ],
+      },  
     ],
   },
   plugins: [],
@@ -79,9 +86,17 @@ console.log(count(2, 1));
 console.log(sum(1, 2, 3, 4));
 ```
 
+配置好`webpack.config.js`之后，运行`npx webpack`进行打包。会发现`dist`中没有打包后的`css文件`，因为`css`打包到`js文件`里面了。
+
+此时，在浏览器中运行`index.html`代码，会发现已经动态创建了一个`<style>`标签。
+
+![css打包报错](/imgs/base/stylehead.png)
+
 - public/index.html
 
-```html
+为了更好的显示这个`style`，在`index.html`中创建一个dom容器`box1`
+
+```html{12-13}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -108,12 +123,14 @@ npx webpack
 
 打开 index.html 页面查看效果
 
+![css打包报错](/imgs/base/box1.png)
+
 ## 处理 Less 资源
 
 ### 1. 下载包
 
 ```:no-line-numbers
-npm i less-loader -D
+npm install less less-loader --save-dev
 ```
 
 ### 2. 功能介绍
@@ -122,7 +139,7 @@ npm i less-loader -D
 
 ### 3. 配置
 
-```js{17-20}
+```js{15-24}
 const path = require("path");
 
 module.exports = {
@@ -134,14 +151,18 @@ module.exports = {
   module: {
     rules: [
       {
-        // 用来匹配 .css 结尾的文件
         test: /\.css$/,
-        // use 数组里面 Loader 执行顺序是从右到左
-        use: ["style-loader", "css-loader"],
+        use: [ "style-loader", "css-loader" ],
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        // loader: xxx, (不能使用loader，因为loader:只能使用一个loader)
+        use: [  // use: 可以使用多个loader
+          // compiles Less to CSS
+          'style-loader',
+          'css-loader',
+          'less-loader', // 将less文件编译成css文件
+        ],
       },
     ],
   },
@@ -324,7 +345,7 @@ npx webpack
 ### 1. 下载包
 
 ```:no-line-numbers
-npm i stylus-loader -D
+npm install stylus stylus-loader --save-dev
 ```
 
 ### 2. 功能介绍
@@ -333,7 +354,7 @@ npm i stylus-loader -D
 
 ### 3. 配置
 
-```js{25-28}
+```js{25-32}
 const path = require("path");
 
 module.exports = {
@@ -360,7 +381,11 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
+        use: [
+          "style-loader", 
+          "css-loader", 
+          "stylus-loader", //负责将 Styl 文件编译成 Css 文件
+        ],
       },
     ],
   },

@@ -2,7 +2,7 @@
 
 过去在 Webpack4 时，我们处理图片资源通过 `file-loader` 和 `url-loader` 进行处理
 
-现在 Webpack5 已经将两个 Loader 功能内置到 Webpack 里了，我们只需要简单配置即可处理图片资源
+现在 Webpack5 已经将两个 Loader 功能内置到 Webpack 里了，我们只需要简单配置即可处理图片资源。不需要下载额外的loader。
 
 ## 1. 配置
 
@@ -107,7 +107,7 @@ npx webpack
 
 将小于某个大小的图片转化成 data URI 形式（Base64 格式）
 
-```js{32-36}
+```js{32-39}
 const path = require("path");
 
 module.exports = {
@@ -140,8 +140,11 @@ module.exports = {
         test: /\.(png|jpe?g|gif|webp)$/,
         type: "asset",
         parser: {
+          // 小于10kb的图片会被base64处理
+          // 优点：减少请求数量
+          // 缺点：体积会变得大一点
           dataUrlCondition: {
-            maxSize: 10 * 1024 // 小于10kb的图片会被base64处理
+            maxSize: 10 * 1024  // 10kb
           }
         }
       },
@@ -155,5 +158,11 @@ module.exports = {
 - 优点：减少请求数量
 - 缺点：体积变得更大
 
-此时输出的图片文件就只有两张，有一张图片以 data URI 形式内置到 js 中了
-（注意：需要将上次打包生成的文件清空，再重新打包才有效果）
+此时输出的图片文件就只有两张，有一张<10kb的图片以 data URI 形式内置到 js 中了。
+![base64的图片，在js文件中](/imgs/base/base64.png)
+
+base64的图片不需要发请求，另外两张没有转成base64都是需要额外发请求来得到图片的。
+![其他两张未处理的](/imgs/base/未处理1.png)
+![其他两张未处理的](/imgs/base/未处理2.png)
+
+（注意：需要将上次打包生成的dist文件中的内容清空，再重新打包才有效果）
