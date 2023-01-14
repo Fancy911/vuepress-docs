@@ -1,16 +1,18 @@
 import {defineUserConfig} from 'vuepress';
 import {defaultTheme} from 'vuepress';
-import { docsearchPlugin } from '@vuepress/plugin-docsearch';
 import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
+    // 站点配置
+    base: '/vuepress-docs/',
     lang: 'zh-CN',
     title: 'Hello！CC学习伴侣',
-    head: [['link', {rel: 'icon', href: '/images/logo.ico'}]],
+    head: [['link', {rel: 'icon', href: '/images/logo.svg'}]],
     description: '这是我的第一个 VuePress 站点',
+    // 主题配置
     theme: defaultTheme({
         // Public 文件路径
-        logo: '/images/logo.ico',
+        logo: '/images/logo.png',
         // 默认主题配置
         navbar: [
             // NavbarItem
