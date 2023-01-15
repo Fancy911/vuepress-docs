@@ -1,10 +1,18 @@
 # 处理 Html 资源
+为什么要处理html？当前，我们每次打包完js资源后，都是手动引入的。
+
+![手动引入的js资源](/imgs/base/html.png)
+
+那么，如果之后打包出的js资源名不叫main.js或者有多个js资源文件，多个css文件，如果手动一个个把这些文件引进来，这样是很费劲的，依赖关系和目录写错了都会有问题，很麻烦。
+
+所以我们希望，能够在html中，自动引入打包后的资源，这样会非常方便。
 
 ## 1. 下载包
 
 ```:no-line-numbers
 npm i html-webpack-plugin -D
 ```
+[HtmlWebpackPlugin](https://webpack.docschina.org/plugins/html-webpack-plugin/#root)
 
 ## 2. 配置
 
@@ -79,7 +87,7 @@ module.exports = {
       context: path.resolve(__dirname, "src"),
     }),
     new HtmlWebpackPlugin({
-      // 以 public/index.html 为模板创建文件
+      // 模板：以 public/index.html 为模板创建文件（如果不写这个，打包到dist中的html文件没有我们之前在public/index.html中写的那些内容）
       // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
       template: path.resolve(__dirname, "public/index.html"),
     }),
@@ -121,4 +129,5 @@ module.exports = {
 npx webpack
 ```
 
-此时 dist 目录就会输出一个 index.html 文件
+此时 dist 目录就会输出一个 index.html 文件，并保留了之前我们在public/index.html中写的内容。
+![打包后dist/index.html](/imgs/base/html2.png)

@@ -25,7 +25,7 @@
 
 - `.eslintrc.*`：新建文件，位于项目根目录
   - `.eslintrc`
-  - `.eslintrc.js`
+  - `.eslintrc.js` ✅最终我们会选择这种文件格式作为配置文件
   - `.eslintrc.json`
   - 区别在于配置格式不一样
 - `package.json` 中 `eslintConfig`：不需要创建文件，在原有文件基础上写
@@ -108,6 +108,8 @@ module.exports = {
 
 ### 3. 在 Webpack 中使用
 
+[webpack的EslintWebpackPlugin](https://webpack.docschina.org/plugins/eslint-webpack-plugin/#root)
+
 1. 下载包
 
 ```:no-line-numbers
@@ -122,14 +124,17 @@ npm i eslint-webpack-plugin eslint -D
 module.exports = {
   // 继承 Eslint 规则
   extends: ["eslint:recommended"],
+  // 指定环境变量
   env: {
-    node: true, // 启用node中全局变量
-    browser: true, // 启用浏览器中全局变量
+    node: true, // 启用node中全局变量，如global，process等
+    browser: true, // 启用浏览器中全局变量，如window，console等
   },
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: "module",
+  // 解析选项
+  parserOptions: { 
+    ecmaVersion: 6,  // ES 语法版本
+    sourceType: "module", // ES 模块化
   },
+  // 具体检查规则
   rules: {
     "no-var": 2, // 不能使用 var 定义变量
   },
@@ -160,6 +165,9 @@ console.log(result2);
 1. 配置
 
 - webpack.config.js
+
+与loader不同，插件下载之后，需要引入才能使用。
+所有插件都是构造函数，所以都是new调用。
 
 ```js{2,58-61}
 const path = require("path");
@@ -220,7 +228,7 @@ module.exports = {
   },
   plugins: [
     new ESLintWebpackPlugin({
-      // 指定检查文件的根目录
+      // 指定检查文件的根目录 (就是说哪些文件需要进行eslint检查)
       context: path.resolve(__dirname, "src"),
     }),
   ],
@@ -255,14 +263,14 @@ dist
 
 JavaScript 编译器。
 
-主要用于将 ES6 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中
+主要用于**将 ES6 语法编写的代码转换为向后兼容的 JavaScript 语法**，以便能够运行在当前和旧版本的浏览器或其他环境中
 
 ### 1. 配置文件
 
 配置文件由很多种写法：
 
 - `babel.config.*`：新建文件，位于项目根目录
-  - `babel.config.js`
+  - `babel.config.js` ✅我们主要用这种方式来写
   - `babel.config.json`
 - `.babelrc.*`：新建文件，位于项目根目录
   - `.babelrc`
@@ -294,6 +302,8 @@ module.exports = {
 ### 3. 在 Webpack 中使用
 
 1. 下载包
+
+[babel-loader](https://webpack.docschina.org/loaders/babel-loader#root)
 
 ```:no-line-numbers
 npm i babel-loader @babel/core @babel/preset-env -D
@@ -334,7 +344,7 @@ console.log(result2);
 
 - webpack.config.js
 
-```js{55-59}
+```js{55-63}
 const path = require("path");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 
@@ -393,6 +403,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/, // 排除node_modules代码不编译
         loader: "babel-loader",
+        // option可以省略，内容写在外部的babel.config.js文件中
+        // options: {
+        //   presets: ['@babel/preset-env']
+        // }
       },
     ],
   },
@@ -412,4 +426,5 @@ module.exports = {
 npx webpack
 ```
 
-打开打包后的 `dist/static/js/main.js` 文件查看，会发现箭头函数等 ES6 语法已经转换了
+打开打包后的 `dist/static/js/main.js` 文件查看，会发现箭头函数等 ES6 语法已经转换了，变成了之前的旧语法，浏览器兼容性增强。
+![babel编译后产出的main.js的sum函数](/imgs/base/babel.png)

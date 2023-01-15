@@ -135,9 +135,15 @@ export default defineUserConfig({
             ],
             '/books/': [
                 {
-                    text: 'Guide3',
-                    children: ['/books/3.md'],
+                    text: '深入理解ES6',
+                    collapsible: true,
+                    children: ['/books/deepes6/1.md'],
                 },
+                {
+                    text: 'CSS揭秘',
+                    collapsible: true,
+                    children: ['/books/cssSecret/1.md'],
+                }
             ],
             '/leetcode/': [
                 {
@@ -158,19 +164,5 @@ export default defineUserConfig({
                 },
             },
         }),
-        // docsearchPlugin({
-        //     apiKey: '<API_KEY>',
-        //     indexName: '<INDEX_NAME>',
-        //     locales: {
-        //         '/': {
-        //             placeholder: 'Search Documentation',
-        //             translations: {
-        //                 button: {
-        //                     buttonText: 'Search Documentation',
-        //                 },
-        //             },
-        //         },
-        //     },  
-        // }),
     ],
 });

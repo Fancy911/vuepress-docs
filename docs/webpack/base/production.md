@@ -42,7 +42,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/main.js",
   output: {
-    path: undefined, // 开发模式没有输出，不需要指定输出目录
+    path: undefined, // 因为开发模式没有输出，不需要指定输出目录
     filename: "static/js/main.js", // 将 js 文件输出到 static/js 目录中
     // clean: true, // 开发模式没有输出，不需要清空输出结果
   },
@@ -224,6 +224,7 @@ npx webpack --config ./config/webpack.prod.js
 {
   // 其他省略
   "scripts": {
+    // 开发模式使用情况较多，所以可以将start设置为dev的快捷命令
     "start": "npm run dev",
     "dev": "npx webpack serve --config ./config/webpack.dev.js",
     "build": "npx webpack --config ./config/webpack.prod.js"
