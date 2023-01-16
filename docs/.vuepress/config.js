@@ -17,6 +17,22 @@ export default defineUserConfig({
         navbar: [
             // NavbarItem
             {
+                text: 'ES6-11',
+                link: '/es6/',
+            },
+            {
+                text: 'NodeJS',
+                link: '/nodejs/',
+            },
+            {
+                text: 'Promise+Ajax+Axios',
+                link: '/promise/',
+            },
+            {
+                text: 'WebPack5',
+                link: '/webpack/',
+            },
+            {
                 text: 'Vue3',
                 link: '/vue/',
             },
@@ -25,20 +41,28 @@ export default defineUserConfig({
                 link: '/react/',
             },
             {
-                text: 'WebPack5',
-                link: '/webpack/',
+                text: '小程序',
+                link: '/wxapp/',
             },
-            {
-                text: 'ESlint',
-                link: '/eslint/',
-            },
-            {
-                text: '单元测试',
-                link: '/jest/',
-            },
+            // {
+            //     text: 'ESlint',
+            //     link: '/eslint/',
+            // },
+            // {
+            //     text: '单元测试',
+            //     link: '/jest/',
+            // },
+            // {
+            //     text: 'Nginx',
+            //     link: '/nginx/',
+            // },
             {
                 text: '前端读书',
                 link: '/books/',
+            },
+            {
+                text: '面经汇总',
+                link: '/employ/',
             },
             {
                 text: 'LeetCode',

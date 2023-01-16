@@ -4,11 +4,15 @@
 
 Css 文件目前被打包到 js 文件中，当 js 文件加载时，会创建一个 style 标签来生成样式
 
-这样对于网站来说，会出现闪屏现象，用户体验不好
+这样对于网站来说，会出现闪屏现象（如下图所示），用户体验不好
+![闪屏现象](/imgs/base/闪屏.gif)
+
+原因是因为浏览器会先解析JS，而CSS是当JS解析完之后才创建的style标签。
 
 我们应该是单独的 Css 文件，通过 link 标签加载性能才好
 
 ### 1. 下载包
+[MiniCssExtractPlugin](https://webpack.docschina.org/plugins/mini-css-extract-plugin#root)
 
 ```:no-line-numbers
 npm i mini-css-extract-plugin -D
@@ -18,7 +22,7 @@ npm i mini-css-extract-plugin -D
 
 - webpack.prod.js
 
-```js{4,19,23,27,31,74-78}
+```js{4,21,25,29,33,76-80}
 const path = require("path");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -35,6 +39,8 @@ module.exports = {
     rules: [
       {
         // 用来匹配 .css 结尾的文件
+        // 注意要把style-loader改成MiniCssExtractPlugin.loader
+        // 因为style-loader是动态创建style标签，将其插入到head中，而MiniCssExtractPlugin是将css文件单独打包
         test: /\.css$/,
         // use 数组里面 Loader 执行顺序是从右到左
         use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -125,7 +131,7 @@ npm i postcss-loader postcss postcss-preset-env -D
 
 - webpack.prod.js
 
-```js{22-31,39-48,57-66,75-84}
+```js{23-33,41-50,59-68,77-86}
 const path = require("path");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -143,10 +149,12 @@ module.exports = {
       {
         // 用来匹配 .css 结尾的文件
         test: /\.css$/,
-        // use 数组里面 Loader 执行顺序是从右到左
+        // use 数组里面 Loader 执行顺序是从右到左，从下到上
+        // postcss-loader要写在css-loader之前，在less-loader的前面
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
+          // 用对象这种写法，可以为postcss-loader添加配置
           {
             loader: "postcss-loader",
             options: {
@@ -271,6 +279,9 @@ module.exports = {
 
 ### 3. 控制兼容性
 
+此时，我们虽然加载好了这个配置预设，但是没告诉这个配置需要做兼容性处理到什么程度。可以看到，像`display: flex`这种有兼容性问题的样式，还是没有任何变化。
+![flex无变化](/imgs/base/css兼容.png)
+
 我们可以在 `package.json` 文件中添加 `browserslist` 来控制样式的兼容性做到什么程度。
 
 ```json
@@ -282,7 +293,8 @@ module.exports = {
 
 想要知道更多的 `browserslist` 配置，查看[browserslist 文档](https://github.com/browserslist/browserslist)
 
-以上为了测试兼容性所以设置兼容浏览器 ie8 以上。
+以上为了测试兼容性所以设置兼容浏览器 ie8 以上。此时再次打包，就能看到main.css中的`display: flex`有了变化。
+![flex已处理](/imgs/base/flex兼容处理.png)
 
 实际开发中我们一般不考虑旧版本浏览器了，所以我们可以这样设置：
 
@@ -292,12 +304,15 @@ module.exports = {
   "browserslist": ["last 2 version", "> 1%", "not dead"]
 }
 ```
+- `last 2 version`：市面上所有浏览器，只兼容最新的两个版本
+- `> 1%`：覆盖99%的浏览器，很冷门的1%就不要了
+- `not dead`：有些24个月没有官方支持或更新的浏览器。目前它是IE 11，IE_Mob 11，黑莓10，黑莓7，三星4，OperaMobile 12.1和百度的所有版本。 `browserslist` 项目在2022年6月21日提交了:Mark Internet Explorer as dead (#701) 链接，将Internet Explorer标记为已死。
 
 ### 4. 合并配置
 
 - webpack.prod.js
 
-```js{6-23,38,42,46,50}
+```js{6-30,45,49,53,57}
 const path = require("path");
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -305,9 +320,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // 获取处理样式的Loaders
 const getStyleLoaders = (preProcessor) => {
+  // loader的配置
+  // 注意要把style-loader改成MiniCssExtractPlugin.loader
+  // 因为style-loader是动态创建style标签，将其插入到head中，而MiniCssExtractPlugin是将css文件单独打包
   return [
+    // use 数组里面 Loader 执行顺序是从右到左，从下到上
     MiniCssExtractPlugin.loader,
     "css-loader",
+    // postcss-loader要写在css-loader之前，在less-loader的前面
+    // 用对象这种写法，可以为postcss-loader添加配置
     {
       loader: "postcss-loader",
       options: {
@@ -318,7 +339,8 @@ const getStyleLoaders = (preProcessor) => {
         },
       },
     },
-    preProcessor,
+    preProcessor,  // less-loader, sass-loader, stylus-loader需要就传，不需要不传
+    // 但不传时，pre就是undefined，会报错，所以需要filter一下
   ].filter(Boolean);
 };
 
@@ -412,7 +434,7 @@ npm run build
 ```
 
 ## Css 压缩
-
+[CssMinimizerWebpackPlugin](https://webpack.docschina.org/plugins/css-minimizer-webpack-plugin/#root)
 ### 1. 下载包
 
 ```:no-line-numbers
@@ -539,3 +561,5 @@ module.exports = {
 ```:no-line-numbers
 npm run build
 ```
+可以看到，压缩后的main.css变成了长长的一行。
+![css压缩](/imgs/base/css压缩.png)
