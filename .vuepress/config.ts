@@ -2,14 +2,18 @@ import {defineUserConfig} from 'vuepress';
 import type {DefaultThemeOptions} from 'vuepress';
 import {searchPlugin} from '@vuepress/plugin-search';
 import recoTheme from 'vuepress-theme-reco';
+import { palettePlugin } from '@vuepress/plugin-palette'
 
 export default defineUserConfig({
     // 站点配置
     base: '/vuepress-docs/',
     lang: 'zh-CN',
     title: 'Hello！CC学习伴侣',
-    head: [['link', {rel: 'icon', href: '/logo.png'}]],
+    head: [
+        ['link', {rel: 'icon', href: '/logo.png'}],
+    ],
     description: '这是我的第一个 VuePress 站点',
+    
     theme: recoTheme({
         catalogTitle: '本页目录大纲',
         autoSetBlogCategories: true,         // 自动设置分类
@@ -220,4 +224,7 @@ export default defineUserConfig({
         //   // hideComments: true // 隐藏评论
         // },
     }),
+    plugins: [
+        palettePlugin({ preset: 'sass' }),
+    ],
 });
