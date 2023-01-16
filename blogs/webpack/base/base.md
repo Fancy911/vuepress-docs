@@ -1,4 +1,11 @@
-# 基本使用
+---
+title: 基本使用
+date: 2018/12/15
+tags:
+ - tag1
+categories:
+ - category1
+---
 
 **`Webpack` 是一个静态资源打包工具。**
 
@@ -76,10 +83,13 @@ console.log(sum(1, 2, 3, 4));
 </html> 
 ```
 
-> 可以在Vscode中安装Live Server插件，这样在index.html中右键点击Open with Live Server则可以直接在浏览器中打开。
-> ![Live Server插件](/imgs/base/liveserver.png)
-> ---
->
+::: details
+
+可以在Vscode中安装，这样在index.html中右键点击Open with Live Server则可以直接在浏览器中打开。
+![Live Server插件](/imgs/base/liveserver.png)
+
+:::
+
 > webpack打包编译前，控制台会报错。如下图所示：
 > ![编译前控制台](/imgs/base/编译后.png)
 > 
@@ -130,6 +140,7 @@ npx webpack ./src/main.js --mode=production
 
 - 开发模式下打包出的dist/main.js
 
+::: details
 ```js
 /*
  * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
@@ -238,8 +249,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 /******/ })()
 ;
 ```
+:::
 
---mode=development的确编译了ES6的模块化语法，但是ES6的箭头函数，三元运算符等是没有编译的
+`--mode=development`的确编译了ES6的模块化语法，但是ES6的箭头函数，三元运算符等是没有编译的
 ![编译后的dist/main.js中的内容](/imgs/base/mainjs.png)
 开发环境下，仅能编辑ES6的模块化语法，并不能编译其他语法
 
