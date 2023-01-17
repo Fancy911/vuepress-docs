@@ -1,31 +1,27 @@
 ---
 home: true
-modules:
-  - BannerBrand
-  - MdContent
-  - Footer
-bannerBrand:
-  heroImage: /logo.png
-  heroImageStyle:
-    maxWidth: '200px'
-    width: '100%'
-    display: block
-    margin: '0 auto 2rem'
-    borderRadius: '1rem'
-  bgImage: '/bg.svg'
-  heroText: CC学习伴侣
-  tagline: 前端学习笔记合集。
-  buttons:
-    - { text: 开始学习ES6-11, link: '/', type: 'plain' }
-    - { text: 开始学习WebPack, link: '/vuepress-docs/blogs/webpack/',type: 'plain' }
-isShowTitleInHome: true
-actionText: About
-actionLink: /views/other/about
+heroText: 小柴自习室
+tagline: A simple and beautiful vuepress blog theme.
+# heroImage: /hero.png
+# heroImageStyle: {
+#   maxWidth: '600px',
+#   width: '100%',
+#   display: block,
+#   margin: '9rem auto 2rem',
+#   background: '#fff',
+#   borderRadius: '1rem',
+# }
+bgImageStyle: {
+  top: '-80px',
+}
+isShowTitleInHome: false
+actionText: Guide
+actionLink: /views/other/guide
 features:
-- title: 过去
-  details: 开发一款看着开心、写着顺手的 vuepress 博客主题。
-- title: 当下
-  details: 帮助更多的朋友节省时间去用心书写内容，而不是仅仅配置一个博客去孤芳自赏。
-- title: 未来
-  details: 吸引更多的朋友参与到开发中来，继续强大功能。
+- title: Yesterday
+  details: 开发一款看着开心、写着顺手的 vuepress 博客主题
+- title: Today
+  details: 希望帮助更多的人花更多的时间在内容创作上，而不是博客搭建上
+- title: Tomorrow
+  details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
 ---
