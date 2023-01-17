@@ -1,4 +1,11 @@
-# 处理 Html 资源
+---
+title: 处理 Html 资源
+date: 2023/01/15
+categories:
+ - 前端
+tags:
+ - webpack
+---
 为什么要处理html？当前，我们每次打包完js资源后，都是手动引入的。
 
 ![手动引入的js资源](/imgs/base/html.png)

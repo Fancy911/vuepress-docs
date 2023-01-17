@@ -291,7 +291,7 @@ module.exports = {
                     zIndex: '999999',
                 },
                 autoplay: false, // 自动播放
-                autoShrink: false,  // 自动缩小
+                autoShrink: true,  // 自动缩小
                 shrinkMode: 'float', // 缩小模式',  
                 floatPosition: 'left', // 指定浮窗模式浮动在哪一侧
                 floatStyle: {

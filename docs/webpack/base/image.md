@@ -1,4 +1,11 @@
-# 处理图片资源
+---
+title: 处理图片资源
+date: 2023/01/15
+categories:
+ - 前端
+tags:
+ - webpack
+---
 
 过去在 Webpack4 时，我们处理图片资源通过 `file-loader` 和 `url-loader` 进行处理
 

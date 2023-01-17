@@ -1,4 +1,11 @@
-# 处理 js 资源
+---
+title: 处理 js 资源
+date: 2023/01/15
+categories:
+ - 前端
+tags:
+ - webpack
+---
 
 有人可能会问，js 资源 Webpack 不能已经处理了吗，为什么我们还要处理呢？
 

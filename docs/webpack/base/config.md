@@ -1,4 +1,11 @@
-# 基本配置
+---
+title: 基本配置
+date: 2023/01/14
+categories:
+ - 前端
+tags:
+ - webpack
+---
 
 在开始使用 `Webpack` 之前，我们需要对 `Webpack` 的配置有一定的认识。
 

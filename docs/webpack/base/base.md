@@ -1,10 +1,10 @@
 ---
 title: 基本使用
-date: 2018/12/15
-tags:
- - tag1
+date: 2023/01/14
 categories:
- - category1
+ - 前端
+tags:
+ - webpack
 ---
 
 **`Webpack` 是一个静态资源打包工具。**
