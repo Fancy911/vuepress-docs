@@ -1,4 +1,11 @@
-# WebPack学习整体结构
+---
+title: WebPack学习整体结构
+date: 2023/01/15
+categories:
+ - 前端
+tags:
+ - webpack
+---
 
 - 基础：Webpack基础，包含是什么，有什么用，如何使用
 - 高级：Webpack高级优化配置，提升项目

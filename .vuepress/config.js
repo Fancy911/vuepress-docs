@@ -214,6 +214,7 @@ module.exports = {
         lastUpdated: 'Last Updated',
         author: 'lizhiwei09',
         authorAvatar: '/avatar.png',
+        subSidebar: 'auto',
         // record: 'xxxx',
         // startYear: '2017',
     },
