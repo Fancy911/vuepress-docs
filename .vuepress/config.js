@@ -33,13 +33,9 @@ module.exports = {
                 icon: 'reco-date',
             },
             {
-                text: 'Docs',
+                text: '学习笔记',
                 icon: 'reco-message',
                 items: [
-                    {
-                        text: 'vuepress-reco',
-                        link: '/docs/theme-reco/',
-                    },
                     {
                         text: 'ES6-11',
                         link: '/docs/es6/',
@@ -49,7 +45,7 @@ module.exports = {
                         link: '/docs/nodejs/',
                     },
                     {
-                        text: 'Promise+Ajax+Axios',
+                        text: '异步请求',
                         link: '/docs/promise/',
                     },
                     {
@@ -58,7 +54,7 @@ module.exports = {
                     },
                     {
                         text: 'Vue3',
-                        link: '/docs/vue/',
+                        link: '/docs/vue3/',
                     },
                     {
                         text: 'React',
@@ -76,11 +72,11 @@ module.exports = {
                 items: [
                     {
                         text: '读书笔记',
-                        link: '/blogs/books/',
+                        link: '/books/normal/',
                     },
                     {
                         text: '学习笔记',
-                        link: '/blogs/books/',
+                        link: '/books/tecn/',
                     },
                 ],
             },
@@ -90,29 +86,29 @@ module.exports = {
                 items: [
                     {
                         text: 'CSS&HTML',
-                        link: '/blogs/interview/',
+                        link: '/interview/csshtml/',
                     },
                     {
                         text: 'JavaScript&ES6',
-                        link: '/blogs/interview/',
+                        link: '/interview/js',
+                    },
+                    {
+                        text: '计算机网络',
+                        link: '/interview/network',
                     },
                     {
                         text: 'Vue',
-                        link: '/blogs/interview/',
+                        link: '/interview/vue',
                     },
                     {
                         text: 'React',
-                        link: '/blogs/interview/',
-                    },
-                    {
-                        text: '前端性能优化',
-                        link: '/blogs/interview/',
+                        link: '/interview/react',
                     },
                 ],
             },
             {
                 text: 'LeetCode',
-                link: '/leetcode/',
+                link: '/blogs/leetcode/',
             },
             {
                 text: 'Contact',
@@ -127,7 +123,6 @@ module.exports = {
             },
         ],
         sidebar: {
-            '/docs/theme-reco/': ['', 'theme', 'plugin', 'api'],
             '/docs/webpack/': [
                 '',
                 {
@@ -182,6 +177,12 @@ module.exports = {
                     ],
                 },
             ],
+            '/docs/es6/': [],
+            '/docs/nodejs/': [],
+            '/docs/promise/': [],
+            '/docs/react/': [],
+            '/docs/wxapp/': [],
+            '/docs/vue3/': [],
         },
         type: 'blog',
         blogConfig: {
