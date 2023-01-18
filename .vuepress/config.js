@@ -3,37 +3,26 @@ module.exports = {
     title: 'Hi!小柴自习室',
     description: '这是我的第一个 VuePress 站点',
     head: [
-        [
-            'link',
-            {
-                rel: 'icon',
-                href: '/logo1.png',
-            },
-        ],
-        [
-            'meta',
-            {
-                name: 'viewport',
-                content: 'width=device-width,initial-scale=1,user-scalable=no',
-            },
-        ],
+        ['link',{rel: 'icon',href: '/logo1.png',}], //浏览器的标签栏的网页图标
+        ['meta',{name: 'viewport',content: 'width=device-width,initial-scale=1,user-scalable=no',}], //移动端适配
+        ['link', { rel: 'dns-prefetch', href: 'https://s2.loli.net' }], //DNS 预解析 dns-prefetch , 是为了优化图片加载的速度
     ],
     theme: 'reco',
     themeConfig: {
         nav: [
+            // {
+            //     text: '首页',
+            //     link: '/',
+            //     icon: 'reco-home',
+            // },
             {
-                text: 'Home',
-                link: '/',
-                icon: 'reco-home',
-            },
-            {
-                text: 'TimeLine',
+                text: '时间线',
                 link: '/timeline/',
                 icon: 'reco-date',
             },
             {
                 text: '学习笔记',
-                icon: 'reco-message',
+                icon: 'reco-document',
                 items: [
                     {
                         text: 'ES6-11',
@@ -67,7 +56,7 @@ module.exports = {
             },
             {
                 text: '读书会',
-                icon: 'reco-message',
+                icon: 'reco-menu',
                 items: [
                     {
                         text: '读书笔记',
@@ -81,7 +70,7 @@ module.exports = {
             },
             {
                 text: '面经汇总',
-                icon: 'reco-message',
+                icon: 'reco-coding',
                 items: [
                     {
                         text: 'CSS&HTML',
@@ -107,11 +96,12 @@ module.exports = {
             },
             {
                 text: 'LeetCode',
+                icon: 'reco-api',
                 link: '/blogs/leetcode/',
             },
             {
                 text: 'Contact',
-                icon: 'reco-message',
+                icon: 'reco-account',
                 items: [
                     {
                         text: 'GitHub',
@@ -187,11 +177,11 @@ module.exports = {
         blogConfig: {
             category: {
                 location: 2,
-                text: 'Category',
+                text: '类目',
             },
             tag: {
                 location: 3,
-                text: 'Tag',
+                text: '标签',
             },
         },
         friendLink: [
@@ -222,6 +212,15 @@ module.exports = {
         lineNumbers: true,
     },
     plugins: [
+        // 鼠标点击特效
+        [
+            'cursor-effects',
+            {
+               size: 4, // size of the particle, default: 2
+               shape: ['star'], // shape of the particle, default: 'star'
+               zIndex: 999999999, // z-index property of the canvas, default: 999999999
+            },
+        ],
         // 看板娘插件
         [
             '@vuepress-reco/vuepress-plugin-kan-ban-niang',
@@ -230,10 +229,10 @@ module.exports = {
                 clean: false,
                 info: 'https://github.com/mengqiuleo',
                 messages: {
-                welcome: '欢迎来到',
-                home: '心里的花，我想要带你回家',
-                theme: '好吧，希望你能喜欢我的其他小伙伴。',
-                close: '你知道我喜欢吃什么吗？痴痴地望着你。'
+                    welcome: '欢迎来到',
+                    home: '心里的花，我想要带你回家',
+                    theme: '好吧，希望你能喜欢我的其他小伙伴。',
+                    close: '你知道我喜欢吃什么吗？痴痴地望着你。'
                 },
                 messageStyle: {
                     right: '50px',
@@ -250,7 +249,7 @@ module.exports = {
                 },
             }
         ],
-        // // 樱花插件
+        // 樱花插件
         [
             "sakura", 
             {
@@ -281,7 +280,37 @@ module.exports = {
                         artist: '최낙타',
                         url: 'https://assets.smallsunnyfox.com/music/3.mp3',
                         cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-                    }
+                    },
+                    {
+                        name: '白色风车',
+                        artist: '周杰伦',
+                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E4%BE%9D%E7%84%B6%E8%8C%83%E7%89%B9%E8%A5%BF%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E7%99%BD%E8%89%B2%E9%A3%8E%E8%BD%A6%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E4%BE%9D%E7%84%B6%E8%8C%83%E7%89%B9%E8%A5%BF',
+                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                    },
+                    {
+                        name: '开不了口',
+                        artist: '周杰伦',
+                        url:'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E8%8C%83%E7%89%B9%E8%A5%BF%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E5%BC%80%E4%B8%8D%E4%BA%86%E5%8F%A3%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E8%8C%83%E7%89%B9%E8%A5%BF',
+                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                    },
+                    {
+                        name: 'Mine Mine',
+                        artist: '周杰伦',
+                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E6%83%8A%E5%8F%B9%E5%8F%B7%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20Mine%20Mine%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E6%83%8A%E5%8F%B9%E5%8F%B7',
+                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                    },
+                    {
+                        name: '半岛铁盒',
+                        artist: '周杰伦',
+                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4',
+                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                    },
+                    {
+                        name: '晴天',
+                        artist: '周杰伦',
+                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%8F%B6%E6%83%A0%E7%BE%8E%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E6%99%B4%E5%A4%A9%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%8F%B6%E6%83%A0%E7%BE%8E',
+                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                    },
                 ],
                 // 播放器位置
                 position: {
