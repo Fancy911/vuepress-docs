@@ -11,5 +11,5 @@ tags:
 
 不需要额外进行配置
 
-![JS默认压缩](/imgs/base/js默认压缩.png)
-![HTML默认压缩](/imgs/base/html默认压缩.png)
+<img :src="$withBase('/imgs/base/js默认压缩.png')" alt="JS默认压缩">
+<img :src="$withBase('/imgs/base/html默认压缩.png')" alt="HTML默认压缩">

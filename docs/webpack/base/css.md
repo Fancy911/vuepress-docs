@@ -13,7 +13,7 @@ tags:
 
 Webpack 本身是不能识别样式资源的，所以我们需要借助 Loader 来帮助 Webpack 解析样式资源
 如果未安装css loader等，直接引入css文件进行打包，会报错。
-![css打包报错](/imgs/base/csserror.png)
+<img :src="$withBase('/imgs/base/csserror.png')" alt="css打包报错" width="80%">
 
 我们找 Loader 都应该去官方文档中找到对应的 Loader，然后使用
 
@@ -96,8 +96,7 @@ console.log(sum(1, 2, 3, 4));
 配置好`webpack.config.js`之后，运行`npx webpack`进行打包。会发现`dist`中没有打包后的`css文件`，因为`css`打包到`js文件`里面了。
 
 此时，在浏览器中运行`index.html`代码，会发现已经动态创建了一个`<style>`标签。
-
-![css打包报错](/imgs/base/stylehead.png)
+<img :src="$withBase('/imgs/base/stylehead.png')" alt="head" width="60%">
 
 - public/index.html
 
@@ -129,8 +128,7 @@ npx webpack
 ```
 
 打开 index.html 页面查看效果
-
-![css打包报错](/imgs/base/box1.png)
+<img :src="$withBase('/imgs/base/box1.png')" alt="css页面效果" width="50%">
 
 ## 处理 Less 资源
 

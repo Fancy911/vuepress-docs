@@ -146,4 +146,4 @@ npx webpack
 
 打开 index.html 页面查看效果
 
-![](/imgs/base/font.png)
+<img :src="$withBase('/imgs/base/font.png')" alt="font图标展示">

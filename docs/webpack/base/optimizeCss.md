@@ -12,7 +12,7 @@ tags:
 Css 文件目前被打包到 js 文件中，当 js 文件加载时，会创建一个 style 标签来生成样式
 
 这样对于网站来说，会出现闪屏现象（如下图所示），用户体验不好
-![闪屏现象](/imgs/base/闪屏.gif)
+<img :src="$withBase('/imgs/base/闪屏.gif')" alt="闪屏现象">
 
 原因是因为浏览器会先解析JS，而CSS是当JS解析完之后才创建的style标签。
 
@@ -287,7 +287,7 @@ module.exports = {
 ### 3. 控制兼容性
 
 此时，我们虽然加载好了这个配置预设，但是没告诉这个配置需要做兼容性处理到什么程度。可以看到，像`display: flex`这种有兼容性问题的样式，还是没有任何变化。
-![flex无变化](/imgs/base/css兼容.png)
+<img :src="$withBase('/imgs/base/css兼容.png')" alt="flex无变化" width="70%">
 
 我们可以在 `package.json` 文件中添加 `browserslist` 来控制样式的兼容性做到什么程度。
 
@@ -301,7 +301,7 @@ module.exports = {
 想要知道更多的 `browserslist` 配置，查看[browserslist 文档](https://github.com/browserslist/browserslist)
 
 以上为了测试兼容性所以设置兼容浏览器 ie8 以上。此时再次打包，就能看到main.css中的`display: flex`有了变化。
-![flex已处理](/imgs/base/flex兼容处理.png)
+<img :src="$withBase('/imgs/base/flex兼容处理.png')" alt="flex已处理" width="70%">
 
 实际开发中我们一般不考虑旧版本浏览器了，所以我们可以这样设置：
 
@@ -569,4 +569,4 @@ module.exports = {
 npm run build
 ```
 可以看到，压缩后的main.css变成了长长的一行。
-![css压缩](/imgs/base/css压缩.png)
+<img :src="$withBase('/imgs/base/css压缩.png')" alt="css压缩">

@@ -434,4 +434,4 @@ npx webpack
 ```
 
 打开打包后的 `dist/static/js/main.js` 文件查看，会发现箭头函数等 ES6 语法已经转换了，变成了之前的旧语法，浏览器兼容性增强。
-![babel编译后产出的main.js的sum函数](/imgs/base/babel.png)
+<img :src="$withBase('/imgs/base/babel.png')" alt="babel编译后产出的main.js的sum函数">

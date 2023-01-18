@@ -22,11 +22,11 @@ tags:
 3. Webpack 配置文件
 
 - 5 个核心概念
-  - entry
-  - output
-  - loader
-  - plugins
-  - mode
+  - entry：入口
+  - output：出口
+  - loader：加载器
+  - plugins：插件
+  - mode：dev/prod
 - devServer 配置
 
 4. Webpack 脚本指令用法

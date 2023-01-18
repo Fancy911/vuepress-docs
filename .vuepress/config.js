@@ -2,7 +2,6 @@ module.exports = {
     base: '/vuepress-docs/',
     title: 'Hi!小柴自习室',
     description: '这是我的第一个 VuePress 站点',
-    // "dest": "public",
     head: [
         [
             'link',

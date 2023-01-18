@@ -166,10 +166,10 @@ module.exports = {
 - 缺点：体积变得更大
 
 此时输出的图片文件就只有两张，有一张<10kb的图片以 data URI 形式内置到 js 中了。
-![base64的图片，在js文件中](/imgs/base/base64.png)
+<img :src="$withBase('/imgs/base/base64.png')" alt="base64的图片，在js文件中" width="80%">
 
 base64的图片不需要发请求，另外两张没有转成base64都是需要额外发请求来得到图片的。
-![其他两张未处理的](/imgs/base/未处理1.png)
-![其他两张未处理的](/imgs/base/未处理2.png)
+<img :src="$withBase('/imgs/base/未处理1.png')" alt="其他两张未处理的" width="40%">
+<img :src="$withBase('/imgs/base/未处理2.png')" alt="其他两张未处理的" width="40%">
 
 （注意：需要将上次打包生成的dist文件中的内容清空，再重新打包才有效果）

@@ -86,13 +86,12 @@ console.log(sum(1, 2, 3, 4));
 ::: details
 
 可以在Vscode中安装，这样在index.html中右键点击Open with Live Server则可以直接在浏览器中打开。
-![Live Server插件](/imgs/base/liveserver.png)
+<img :src="$withBase('/imgs/base/liveserver.png')" alt="Live Server插件" width="80%">
 
 :::
 
 > webpack打包编译前，控制台会报错。如下图所示：
-> ![编译前控制台](/imgs/base/编译后.png)
-> 
+> <img :src="$withBase('/imgs/base/编译后.png')" alt="编译前控制台" width="55%">
 
 ### 3. 下载依赖
 
@@ -252,7 +251,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 :::
 
 `--mode=development`的确编译了ES6的模块化语法，但是ES6的箭头函数，三元运算符等是没有编译的
-![编译后的dist/main.js中的内容](/imgs/base/mainjs.png)
+<img :src="$withBase('/imgs/base/mainjs.png')" alt="编译后的dist/main.js中的内容">
 开发环境下，仅能编辑ES6的模块化语法，并不能编译其他语法
 
 - 开发模式下打包出的dist/main.js
@@ -264,7 +263,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 可以看出这两种打包方式，打出来的main.js是有鲜明对比的。
 
 将`index.html`中引入的`<script src="../src/main.js"></script>`，改为`<script src="../dist/main.js"></script>`，再看浏览器，则不再报错。
-![编译后控制台](/imgs/base/编译后.png)
+<img :src="$withBase('/imgs/base/编译后.png')" alt="编译后控制台" width="55%">
 
 ## 小结
 

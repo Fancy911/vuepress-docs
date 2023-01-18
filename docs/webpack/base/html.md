@@ -6,13 +6,14 @@ categories:
 tags:
  - webpack
 ---
-为什么要处理html？当前，我们每次打包完js资源后，都是手动引入的。
+为什么要处理`html`?
 
-![手动引入的js资源](/imgs/base/html.png)
+当前，我们每次打包完js资源后，都是手动引入的。
+<img :src="$withBase('/imgs/base/html.png')" alt="手动引入的js资源" width="60%">
 
-那么，如果之后打包出的js资源名不叫main.js或者有多个js资源文件，多个css文件，如果手动一个个把这些文件引进来，这样是很费劲的，依赖关系和目录写错了都会有问题，很麻烦。
+那么，如果之后打包出的js资源名不叫`main.js`或者有多个js资源文件，多个css文件，如果手动一个个把这些文件引进来，这样是很费劲的，依赖关系和目录写错了都会有问题，很麻烦。
 
-所以我们希望，能够在html中，自动引入打包后的资源，这样会非常方便。
+所以我们希望，能够在`html`中，自动引入打包后的资源，这样会非常方便。
 
 ## 1. 下载包
 
@@ -136,5 +137,6 @@ module.exports = {
 npx webpack
 ```
 
-此时 dist 目录就会输出一个 index.html 文件，并保留了之前我们在public/index.html中写的内容。
-![打包后dist/index.html](/imgs/base/html2.png)
+此时 dist 目录就会输出一个 index.html 文件，并保留了之前我们在public/index.html中写的内容。并且自动引入了打包生成的js等资源
+
+<img :src="$withBase('/imgs/base/html2.png')" alt="自动引入后dist/index.html" width="60%">

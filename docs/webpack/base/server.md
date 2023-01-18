@@ -14,7 +14,7 @@ tags:
 ```:no-line-numbers
 npm i webpack-dev-server -D
 ```
-dev-server会在webpack中搭建一个开发服务器，会自动监视我们的src里面的文件，一旦有文件发生了改变，就会自动打包。
+`dev-server`会在`webpack`中搭建一个开发服务器，会自动监视我们的`src`里面的文件，一旦有文件发生了改变，就会自动打包。
 
 ## 2. 配置
 
