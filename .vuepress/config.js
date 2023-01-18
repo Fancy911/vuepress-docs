@@ -1,6 +1,6 @@
 module.exports = {
     base: '/vuepress-docs/',
-    title: 'Hi!小柴自习室',
+    title: 'Hi! CC自习室',
     description: '这是我的第一个 VuePress 站点',
     head: [
         ['link',{rel: 'icon',href: '/logo1.png',}], //浏览器的标签栏的网页图标
@@ -139,35 +139,39 @@ module.exports = {
                 {
                     title: '高级优化',
                     children: [
-                        "senior/intro", 
-                        "senior/enhanceExperience", 
-                        "senior/liftingSpeed", 
-                        "senior/reduceVolume", 
-                        "senior/optimizePerformance", 
-                        "senior/summary",
+                        "/docs/webpack/senior/intro", 
+                        "/docs/webpack/senior/enhanceExperience", 
+                        "/docs/webpack/senior/liftingSpeed", 
+                        "/docs/webpack/senior/reduceVolume", 
+                        "/docs/webpack/senior/optimizePerformance", 
+                        "/docs/webpack/senior/summary",
                     ]
                 },
                 {
                     title: "项目配置",
                     children: [
-                        "project/intro",
-                        "project/react-cli",
-                        "project/vue-cli",
-                        "project/summary"
+                        "/docs/webpack/project/intro",
+                        "/docs/webpack/project/react-cli",
+                        "/docs/webpack/project/vue-cli",
+                        "/docs/webpack/project/summary"
                     ],
                 },
                 {
                     title: "原理分析",
                     children: [
-                        "origin/intro",
-                        "origin/loader",
-                        "origin/plugin",
-                        "origin/summary"
+                        "/docs/webpack/origin/intro",
+                        "/docs/webpack/origin/loader",
+                        "/docs/webpack/origin/plugin",
+                        "/docs/webpack/origin/summary"
                     ],
                 },
             ],
             '/docs/es6/': [],
-            '/docs/nodejs/': [],
+            '/docs/nodejs/': [
+                '',
+                '/docs/nodejs/intro.md',
+                '/docs/nodejs/commonJS.md',
+            ],
             '/docs/promise/': [],
             '/docs/react/': [],
             '/docs/wxapp/': [],

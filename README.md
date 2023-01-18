@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: 小柴自习室
+heroText: CC自习室
 tagline: A simple and beautiful vuepress blog theme.
 # heroImage: /hero.png
 # heroImageStyle: {
@@ -29,12 +29,30 @@ features:
 ---
 <style>
     body {        
-      background-image: url(.vuepress/public/12.gif);   
+      background-image: url(.vuepress/public/star.gif);   
       /* background-repeat: repeat-x ; */
       /* background-size:100% 100%; */
     }  
     .navbar {
         background: transparent !important;
+    }
+    .navbar .site-name {
+        font-family: Hannotate SC;
+        font-size: 1.3rem !important;
+    }
+    .nav-links .nav-item {
+        font-family: Wawati SC;
+        font-size: 1.2rem !important;
+    }
+    .home-blog .hero h1 {
+        font-size: 5.5rem !important;
+        font-weight: 900 !important;
+        text-shadow: 1px 1px 9px #f96, -1px -1px 2px #f96;
+        /* text-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 50px #fff, 0 0 50px #1123d5, 0 0 72px #1123d5; */
+        font-family: Hannotate SC;
+    }
+    .home-blog .hero .description {
+        font-family: Hannotate SC;
     }
     .links {
         background-color: transparent !important;
