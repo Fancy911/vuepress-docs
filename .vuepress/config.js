@@ -59,12 +59,20 @@ module.exports = {
                 icon: 'reco-menu',
                 items: [
                     {
-                        text: '读书笔记',
-                        link: '/books/normal/',
+                        text: '观读列表',
+                        link: '/books/list/',
                     },
                     {
-                        text: '学习笔记',
-                        link: '/books/tecn/',
+                        text: '读后感',
+                        link: '/books/textType/',
+                    },
+                    {
+                        text: '观后感',
+                        link: '/books/mediaType/',
+                    },
+                    {
+                        text: '技术类',
+                        link: '/books/tecnType/',
                     },
                 ],
             },
@@ -112,6 +120,16 @@ module.exports = {
             },
         ],
         sidebar: {
+            '/books/list/':[
+                '', //书单
+                '/books/list/documentaryList', //纪录片
+                '/books/list/movieList', //电影
+                '/books/list/tvList', //电视剧
+                '/books/list/photographyWebsite', //摄影网站
+            ],
+            '/books/textType/' : [],
+            '/books/mediaType/' : [],
+            '/books/tecnType/' : [],
             '/docs/webpack/': [
                 '',
                 {
