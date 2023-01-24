@@ -1,4 +1,11 @@
-# 减少代码体积
+---
+title: 减少代码体积
+date: 2023/01/22
+categories:
+ - 前端
+tags:
+ - webpack
+---
 
 ## Tree Shaking
 
@@ -12,9 +19,9 @@
 
 ### 是什么
 
-`Tree Shaking` 是一个术语，通常用于描述移除 JavaScript 中的没有使用上的代码。
+`Tree Shaking` 是一个术语，通常用于描述**移除 JavaScript 中的没有使用上的代码**。
 
-**注意：它依赖 `ES Module`。**
+**注意：它依赖 `ES Module`。** 如果你使用CommonJS就没法做这个Tree Shaking了。
 
 ### 怎么用
 
@@ -24,15 +31,17 @@ Webpack 已经默认开启了这个功能，无需其他配置。
 
 ### 为什么
 
-Babel 为编译的每个文件都插入了辅助代码，使代码体积过大！
+Babel 为编译的每个文件**都插入了辅助代码**，使代码体积过大！
 
-Babel 对一些公共方法使用了非常小的辅助代码，比如 `_extend`。默认情况下会被添加到每一个需要它的文件中。
+eg：Babel 对一些公共方法使用了非常小的辅助代码，比如 `_extend`方法。默认情况下会被添加到每一个需要它的文件中。（如果有十个文件需要_extend这个方法，那么它就会被定义十次。）
 
-你可以将这些辅助代码作为一个独立模块，来避免重复引入。
+**你可以将这些辅助代码作为一个独立模块，来避免重复引入。**
 
 ### 是什么
 
-`@babel/plugin-transform-runtime`: 禁用了 Babel 自动对每个文件的 runtime 注入，而是引入 `@babel/plugin-transform-runtime` 并且使所有辅助代码从这里引用。
+我们需要使用`@babel/plugin-transform-runtime`这个插件。
+
+`@babel/plugin-transform-runtime`: 禁用了 Babel 自动对每个文件的 runtime 注入，而是引入 `@babel/plugin-transform-runtime` 并且使所有辅助代码从这里引用。（也就是说，辅助代码不会在每个文件中被定义了，而是在需要的时候从`@babel/plugin-transform-runtime`这里引用使用。）
 
 ### 怎么用
 
@@ -43,6 +52,10 @@ npm i @babel/plugin-transform-runtime -D
 ```
 
 2. 配置
+
+在`babel-loader`处添加这个配置。
+
+开发模式和生产模式都是在`babel-loader`这样配即可。
 
 ```js{100}
 const os = require("os");
@@ -207,11 +220,11 @@ module.exports = {
 
 我们可以对图片进行压缩，减少图片体积。
 
-**注意：如果项目中图片都是在线链接，那么就不需要了。本地项目静态图片才需要进行压缩。**
+**注意：我们要处理的图片是本地引入的图片，如果项目中图片都是在线链接，那么就不需要了。**
 
 ### 是什么
 
-`image-minimizer-webpack-plugin`: 用来压缩图片的插件
+需要使用`image-minimizer-webpack-plugin`这个用来压缩图片的插件。
 
 ### 怎么用
 
@@ -223,7 +236,7 @@ npm i image-minimizer-webpack-plugin imagemin -D
 
 还有剩下包需要下载，有两种模式：
 
-- 无损压缩
+- 无损压缩（✅推荐这种）
 
 ```
 npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo -D
@@ -234,6 +247,16 @@ npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo -
 ```
 npm install imagemin-gifsicle imagemin-mozjpeg imagemin-pngquant imagemin-svgo -D
 ```
+::: tip
+有可能会下载不下来，报错，此时可以在后面加上--ignore-scripts参数，亲测有效。
+`npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo -D --ignore-scripts`
+:::
+
+::: tip
+对于Mac用户来说，可以选择cnpm这种更好的方式，也免于下载后面的jpegtran和optipng软件
+- `npm install -g cnpm --registry=https://registry.npm.taobao.org`
+- `cnpm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo -D`
+:::
 
 > [有损/无损压缩的区别](https://baike.baidu.com/item/%E6%97%A0%E6%8D%9F%E3%80%81%E6%9C%89%E6%8D%9F%E5%8E%8B%E7%BC%A9)
 
@@ -377,6 +400,7 @@ module.exports = {
     // css压缩
     // new CssMinimizerPlugin(),
   ],
+  // 优化
   optimization: {
     minimizer: [
       // css压缩也可以写到optimization.minimizer里面，效果一样的
@@ -425,7 +449,9 @@ module.exports = {
 };
 ```
 
-3. 打包时会出现报错：
+3. 此时，我们npm run build打包时会出现报错：
+> 如果用的cnpm的同学，则不会报错，会打包成功。
+<img :src="$withBase('/imgs/senior/img错.png')" alt="报错信息">
 
 ```
 Error: Error with 'src\images\1.jpeg': '"C:\Users\86176\Desktop\webpack\webpack_code\node_modules\jpegtran-bin\vendor\jpegtran.exe"'
@@ -434,15 +460,19 @@ Error with 'src\images\3.gif': spawn C:\Users\86176\Desktop\webpack\webpack_code
 
 我们需要安装两个文件到 node_modules 中才能解决, 文件可以从课件中找到：
 
-- jpegtran.exe
+- jpegtran.exe（仅限Windows）
 
 需要复制到 `node_modules\jpegtran-bin\vendor` 下面
 
 > [jpegtran 官网地址](http://jpegclub.org/jpegtran/)
 
-- optipng.exe
+- optipng.exe（仅限Windows）
 
 需要复制到 `node_modules\optipng-bin\vendor` 下面
 
 > [OptiPNG 官网地址](http://optipng.sourceforge.net/)
+
+4. 对比使用图片压缩打包前后的结果
+<img :src="$withBase('/imgs/senior/图片压缩前.png')" alt="图片压缩打包前">
+<img :src="$withBase('/imgs/senior/图片压缩后.png')" alt="图片压缩打包后">
 

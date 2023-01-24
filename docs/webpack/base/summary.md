@@ -1,5 +1,5 @@
 ---
-title: 总结
+title: 基础篇总结
 date: 2023/01/15
 categories:
  - 前端

@@ -143,7 +143,16 @@ module.exports = {
                         "/docs/webpack/senior/enhanceExperience", 
                         "/docs/webpack/senior/liftingSpeed", 
                         "/docs/webpack/senior/reduceVolume", 
-                        "/docs/webpack/senior/optimizePerformance", 
+                        {
+                            title:'优化代码性能',
+                            children: [
+                                "/docs/webpack/senior/codeSplit", 
+                                "/docs/webpack/senior/preloadPrefetch", 
+                                "/docs/webpack/senior/networkCache", 
+                                "/docs/webpack/senior/coreJs", 
+                                "/docs/webpack/senior/pwa",
+                            ]
+                        },
                         "/docs/webpack/senior/summary",
                     ]
                 },
