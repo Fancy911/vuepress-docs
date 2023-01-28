@@ -253,7 +253,7 @@ module.exports = {
 
 我们最终输出三个文件：main、math、runtime。当 math 文件发送变化，变化的是 math 和 runtime 文件，main 不变。
 
-runtime 文件只保存文件的 hash 值和它们与文件关系，整个文件体积就比较小，所以变化重新请求的代价也小。
+runtime 文件只保存文件的 hash 值和它们的依赖关系，整个文件体积就比较小，所以变化重新请求的代价也小。
 
 ```js{67-70}
 const os = require("os");
