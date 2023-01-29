@@ -217,10 +217,16 @@ module.exports = {
         },
         friendLink: [
             {
-                title: '午后南杂',
-                desc: 'Enjoy when you can, and endure when you must.',
-                email: '1156743527@qq.com',
-                link: 'https://www.recoluan.com',
+                title: "CC's Learning Park",
+                desc: '银河有迹可循.',
+                avatar: 'http://ssblog.cc:8090/upload/2021/12/2208x1242-9566baa110bd4c9682471c23a3db4755.jpg',
+                link: 'http://ssblog.cc:8090/',
+            },
+            {
+                title: "Zed's Script Garden",
+                desc: 'Hi, Nice to Meet you.',
+                avatar: 'http://blog.lonelyme.cn/upload/2021/12/logo-cdb01961def2411db8695eb1fc769eb3.png',
+                link: 'http://blog.lonelyme.cn/',
             },
             {
                 title: 'vuepress-theme-reco',
@@ -299,48 +305,41 @@ module.exports = {
             {
                 // 播放列表
                 audios: [
-                    // 网络文件示例
                     {
-                        name: '강남역 4번 출구',
-                        artist: 'Plastic / Fallin` Dild',
-                        url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+                        name: '小摩托 (Live)',
+                        artist: '郁可唯',
+                        url: 'http://music.163.com/song/media/outer/url?id=1493073534',
                         cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
                     },
                     {
-                        name: '用胳膊当枕头',
-                        artist: '최낙타',
-                        url: 'https://assets.smallsunnyfox.com/music/3.mp3',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                        name: '阿拉斯加海湾',
+                        artist: '蓝心羽',
+                        url: 'http://music.163.com/song/media/outer/url?id=1500569811',
+                        cover: 'http://p1.music.126.net/CbWwREaA22LmAv1oOtJt2w==/109951165518862422.jpg?param=130y130'
                     },
                     {
-                        name: '白色风车',
-                        artist: '周杰伦',
-                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E4%BE%9D%E7%84%B6%E8%8C%83%E7%89%B9%E8%A5%BF%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E7%99%BD%E8%89%B2%E9%A3%8E%E8%BD%A6%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E4%BE%9D%E7%84%B6%E8%8C%83%E7%89%B9%E8%A5%BF',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                        name: '骂醒我',
+                        artist: '周汤豪',
+                        url: 'http://music.163.com/song/media/outer/url?id=202360',
+                        cover: 'http://p1.music.126.net/NXhja1ltxdNR0K1yQnxi6A==/109951167389055522.jpg?param=130y130'
                     },
                     {
-                        name: '开不了口',
-                        artist: '周杰伦',
-                        url:'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E8%8C%83%E7%89%B9%E8%A5%BF%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E5%BC%80%E4%B8%8D%E4%BA%86%E5%8F%A3%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E8%8C%83%E7%89%B9%E8%A5%BF',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                        name: '电台情歌',
+                        artist: '莫文蔚',
+                        url: 'http://music.163.com/song/media/outer/url?id=277822',
+                        cover: 'http://p1.music.126.net/ImOQNmJZTzogPdt0-AsyDA==/19045740416582430.jpg?param=130y130'
                     },
                     {
-                        name: 'Mine Mine',
-                        artist: '周杰伦',
-                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E6%83%8A%E5%8F%B9%E5%8F%B7%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20Mine%20Mine%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E6%83%8A%E5%8F%B9%E5%8F%B7',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                        name: 'Last Dance',
+                        artist: '伍佰 & China Blue',
+                        url: 'http://music.163.com/song/media/outer/url?id=157276',
+                        cover: 'http://p2.music.126.net/HDdQFXVIlRvR96s0mQyu9g==/109951164170257125.jpg?param=130y130'
                     },
                     {
-                        name: '半岛铁盒',
-                        artist: '周杰伦',
-                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-                    },
-                    {
-                        name: '晴天',
-                        artist: '周杰伦',
-                        url: 'https://hainueducn-my.sharepoint.com/personal/wangluoxinxizhongxin_hainu_edu_cn/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%8F%B6%E6%83%A0%E7%BE%8E%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%20%2D%20%E6%99%B4%E5%A4%A9%2Eflac&parent=%2Fpersonal%2Fwangluoxinxizhongxin%5Fhainu%5Fedu%5Fcn%2FDocuments%2FMUSIC%2F%E5%91%A8%E6%9D%B0%E4%BC%A6%2F%E5%8F%B6%E6%83%A0%E7%BE%8E',
-                        cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+                        name: '我们俩',
+                        artist: '郭顶',
+                        url: 'http://music.163.com/song/media/outer/url?id=85571',
+                        cover: 'http://p2.music.126.net/WpUDvtRGZc-WE3nuw-PgsA==/85761906967212.jpg?param=130y130'
                     },
                 ],
                 // 播放器位置
