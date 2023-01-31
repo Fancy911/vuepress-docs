@@ -24,4 +24,4 @@ tags:
    - 执行命令：tsc 01_helloTS.ts 
    - 能看到通过tsc编译后，产生了一个同名的js文件01_helloTS.js 
 
-<img src='./imgs/bianyi.png' alt="编译成功" width="20%">
+<img src='./imgs/bianyi.png' alt="编译成功" width="20%" />

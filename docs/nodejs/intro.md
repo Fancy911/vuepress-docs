@@ -67,4 +67,4 @@ let div = document.createElement('div'); ❌
 console.log(location.href); ❌
 ```
 
- 但例如普通的Js语法`console.log("hello node");` 执行是完全没问题的。
+但例如普通的Js语法`console.log("hello node");` 执行是完全没问题的。

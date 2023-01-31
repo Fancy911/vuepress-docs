@@ -229,7 +229,20 @@ module.exports = {
             '/docs/nodejs/': [
                 '',
                 '/docs/nodejs/intro.md',
-                '/docs/nodejs/commonJS.md',
+                {
+                    title: 'CommonJS模块化规范',
+                    children: [
+                        '/docs/nodejs/commonjs/intro',
+                        '/docs/nodejs/commonjs/demo',
+                    ]
+                },
+                {
+                    title: 'NodeJS常用内置模块',
+                    children: [
+                        '/docs/nodejs/nodeModule/path',
+                        '/docs/nodejs/nodeModule/fs',
+                    ]
+                },
             ],
             '/docs/promise/': [],
             '/docs/react/': [],
@@ -282,14 +295,14 @@ module.exports = {
     },
     plugins: [
         // 鼠标点击特效
-        [
-            'cursor-effects',
-            {
-               size: 4, // size of the particle, default: 2
-               shape: ['star'], // shape of the particle, default: 'star'
-               zIndex: 999999999, // z-index property of the canvas, default: 999999999
-            },
-        ],
+        // [
+        //     'cursor-effects',
+        //     {
+        //        size: 4, // size of the particle, default: 2
+        //        shape: ['star'], // shape of the particle, default: 'star'
+        //        zIndex: 999999999, // z-index property of the canvas, default: 999999999
+        //     },
+        // ],
         // 看板娘插件
         [
             '@vuepress-reco/vuepress-plugin-kan-ban-niang',
