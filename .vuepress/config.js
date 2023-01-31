@@ -29,6 +29,10 @@ module.exports = {
                         link: '/docs/es6/',
                     },
                     {
+                        text: 'TypeScript',
+                        link: '/docs/ts/',
+                    },
+                    {
                         text: 'NodeJS',
                         link: '/docs/nodejs/',
                     },
@@ -194,6 +198,34 @@ module.exports = {
                 },
             ],
             '/docs/es6/': [],
+            '/docs/ts/': [
+                '',
+                {
+                    title: 'Ts入门',
+                    children: [
+                        '/docs/ts/base/intro',
+                        '/docs/ts/base/environment',
+                        '/docs/ts/base/type',
+                        '/docs/ts/base/compile',
+                        '/docs/ts/base/webpack',
+                    ]
+                },
+                {
+                    title: 'Ts面向对象',
+                    children: [
+                    ]
+                },
+                {
+                    title: 'Ts贪吃蛇游戏项目',
+                    children: [
+                    ]
+                },
+                {
+                    title: 'Ts读书笔记',
+                    children: [
+                    ]
+                }
+            ],
             '/docs/nodejs/': [
                 '',
                 '/docs/nodejs/intro.md',
