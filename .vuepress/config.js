@@ -213,6 +213,14 @@ module.exports = {
                 {
                     title: 'Ts面向对象',
                     children: [
+                        '/docs/ts/oop/面向对象',
+                        '/docs/ts/oop/class',
+                        '/docs/ts/oop/constructor',
+                        '/docs/ts/oop/extends',
+                        '/docs/ts/oop/abstract',
+                        '/docs/ts/oop/interface',
+                        '/docs/ts/oop/encapsulation',
+                        '/docs/ts/oop/generic',
                     ]
                 },
                 {
