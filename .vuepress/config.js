@@ -30,7 +30,7 @@ module.exports = {
                     },
                     {
                         text: 'TypeScript',
-                        link: '/docs/ts/',
+                        link: '/docs/typescript/',
                     },
                     {
                         text: 'NodeJS',
@@ -198,34 +198,38 @@ module.exports = {
                 },
             ],
             '/docs/es6/': [],
-            '/docs/ts/': [
+            '/docs/typescript/': [
                 '',
                 {
                     title: 'Ts入门',
                     children: [
-                        '/docs/ts/base/intro',
-                        '/docs/ts/base/environment',
-                        '/docs/ts/base/type',
-                        '/docs/ts/base/compile',
-                        '/docs/ts/base/webpack',
+                        '/docs/typescript/base/intro',
+                        '/docs/typescript/base/environment',
+                        '/docs/typescript/base/type',
+                        '/docs/typescript/base/compile',
+                        '/docs/typescript/base/webpack',
                     ]
                 },
                 {
                     title: 'Ts面向对象',
                     children: [
-                        '/docs/ts/oop/面向对象',
-                        '/docs/ts/oop/class',
-                        '/docs/ts/oop/constructor',
-                        '/docs/ts/oop/extends',
-                        '/docs/ts/oop/abstract',
-                        '/docs/ts/oop/interface',
-                        '/docs/ts/oop/encapsulation',
-                        '/docs/ts/oop/generic',
+                        '/docs/typescript/oop/面向对象',
+                        '/docs/typescript/oop/class',
+                        '/docs/typescript/oop/constructor',
+                        '/docs/typescript/oop/extends',
+                        '/docs/typescript/oop/abstract',
+                        '/docs/typescript/oop/interface',
+                        '/docs/typescript/oop/encapsulation',
+                        '/docs/typescript/oop/generic',
                     ]
                 },
                 {
-                    title: 'Ts贪吃蛇游戏项目',
+                    title: 'TS实现简单的贪吃蛇游戏',
                     children: [
+                        '/docs/typescript/game/start',
+                        '/docs/typescript/game/staticHtml',
+                        '/docs/typescript/game/less',
+                        '/docs/typescript/game/ts',
                     ]
                 },
                 {

@@ -254,7 +254,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 <img :src="$withBase('/imgs/base/mainjs.png')" alt="编译后的dist/main.js中的内容">
 开发环境下，仅能编辑ES6的模块化语法，并不能编译其他语法
 
-- 开发模式下打包出的dist/main.js
+- 生产模式下打包出的dist/main.js
 
 ```js
 (()=>{"use strict";console.log(1),console.log([1,2,3,4].reduce(((o,e)=>o+e),0))})();
