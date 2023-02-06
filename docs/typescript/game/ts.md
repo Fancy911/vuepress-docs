@@ -464,7 +464,9 @@ new GameControl();
 ```
 
 ## 最终游戏效果展示
+
 <img src="./imgs/snakeGame.gif" alt="贪吃蛇整体设计图" style="zoom:50%;" />
 
 ## 项目Github地址
 
+[Github-贪吃蛇项目](https://github.com/Fancy911/snake-game/tree/main/src)
