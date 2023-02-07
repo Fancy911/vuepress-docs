@@ -90,26 +90,30 @@ module.exports = {
                     },
                     {
                         text: 'JavaScript&ES6',
-                        link: '/interview/js',
+                        link: '/interview/js/',
                     },
                     {
                         text: '计算机网络',
-                        link: '/interview/network',
+                        link: '/interview/network/',
                     },
                     {
                         text: 'Vue',
-                        link: '/interview/vue',
+                        link: '/interview/vue/',
                     },
                     {
                         text: 'React',
-                        link: '/interview/react',
+                        link: '/interview/react/',
                     },
+                    {
+                      text: 'React',
+                      link: '/interview/leetcode/',
+                  },
                 ],
             },
             {
-                text: 'LeetCode',
+                text: '小游戏',
                 icon: 'reco-api',
-                link: '/blogs/leetcode/',
+                link: '/miniGame/',
             },
             {
                 text: 'Contact',
@@ -260,6 +264,16 @@ module.exports = {
             '/docs/react/': [],
             '/docs/wxapp/': [],
             '/docs/vue3/': [],
+            '/miniGame/': [
+              // '',
+              {
+                title: 'Cocos Creator学习',
+                children: [
+                  '/miniGame/cocos/intro',
+                  '/miniGame/cocos/bridge',
+                ]
+              }
+            ]
         },
         type: 'blog',
         blogConfig: {
