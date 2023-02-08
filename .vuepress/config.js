@@ -261,11 +261,42 @@ module.exports = {
                 },
             ],
             '/docs/promise/': [],
-            '/docs/react/': [],
+            '/docs/react/': [
+                '',
+                {
+                    title: 'React16-17',
+                    children: [
+                        {
+                            title: 'React基础',
+                            children: [
+                                '/docs/react/react17/basic/intro',
+                                '/docs/react/react17/basic/base',
+                                '/docs/react/react17/basic/jsx',
+                                '/docs/react/react17/basic/module',
+                            ]
+                        },
+                        {
+                            title: 'React面向组件',
+                            children: [
+                                '/docs/react/react17/component/basic',
+                                '/docs/react/react17/component/state',
+                            ]
+                        },
+                        '/docs/react/react17/cli',
+                    ]
+                },
+                {
+                    title: 'React-18',
+                    children: []
+                },
+                {
+                    title: 'React-Native',
+                    children: []
+                },
+            ],
             '/docs/wxapp/': [],
             '/docs/vue3/': [],
             '/miniGame/': [
-              // '',
               {
                 title: 'Cocos Creator学习',
                 children: [

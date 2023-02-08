@@ -7,6 +7,8 @@ tags:
  - webpack
 ---
 
+[Webpack中文网](https://webpack.docschina.org/concepts/)
+
 - 基础：Webpack基础，包含是什么，有什么用，如何使用
 - 高级：Webpack高级优化配置，提升项目
 - 项目：从零开始搭建一个项目脚手架，并进行优化（包含React和Vue）
