@@ -110,11 +110,11 @@ module.exports = {
                   },
                 ],
             },
-            {
-                text: '小游戏',
-                icon: 'reco-api',
-                link: '/miniGame/',
-            },
+            // {
+            //     text: '小游戏',
+            //     icon: 'reco-api',
+            //     link: '/miniGame/',
+            // },
             {
                 text: 'Contact',
                 icon: 'reco-account',
@@ -296,15 +296,6 @@ module.exports = {
             ],
             '/docs/wxapp/': [],
             '/docs/vue3/': [],
-            '/miniGame/': [
-              {
-                title: 'Cocos Creator学习',
-                children: [
-                  '/miniGame/cocos/intro',
-                  '/miniGame/cocos/bridge',
-                ]
-              }
-            ]
         },
         type: 'blog',
         blogConfig: {
