@@ -280,9 +280,21 @@ module.exports = {
                             children: [
                                 '/docs/react/react17/component/basic',
                                 '/docs/react/react17/component/state',
+                                '/docs/react/react17/component/props',
+                                '/docs/react/react17/component/refs',
+                                '/docs/react/react17/component/eventDeal',
+                                '/docs/react/react17/component/受控和非受控组件',
+                                '/docs/react/react17/component/currying',
+                                '/docs/react/react17/component/lifeCycle',
+                            ]   
+                        },
+                        {
+                            title: 'React脚手架',
+                            children: [
+                                '/docs/react/react17/cli/intro',
                             ]
                         },
-                        '/docs/react/react17/cli',
+                       
                     ]
                 },
                 {
