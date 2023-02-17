@@ -284,7 +284,6 @@ module.exports = {
                                 '/docs/react/react17/component/refs',
                                 '/docs/react/react17/component/eventDeal',
                                 '/docs/react/react17/component/受控和非受控组件',
-                                '/docs/react/react17/component/currying',
                                 '/docs/react/react17/component/lifeCycle',
                             ]   
                         },
