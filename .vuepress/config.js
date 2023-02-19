@@ -285,15 +285,32 @@ module.exports = {
                                 '/docs/react/react17/component/eventDeal',
                                 '/docs/react/react17/component/受控和非受控组件',
                                 '/docs/react/react17/component/lifeCycle',
+                                '/docs/react/react17/component/domDiff',
                             ]   
                         },
                         {
                             title: 'React脚手架',
                             children: [
                                 '/docs/react/react17/cli/intro',
+                                // '/docs/react/react17/cli/todoList',
                             ]
                         },
-                       
+                        {
+                            title: '网络请求',
+                            children: [
+                                '/docs/react/react17/netRequest/ajax',
+                                '/docs/react/react17/netRequest/axios',
+                                '/docs/react/react17/netRequest/githubDemo',
+                                '/docs/react/react17/netRequest/消息机制',
+                                '/docs/react/react17/netRequest/fetch',
+                            ]
+                        },
+                        {
+                            title: 'React路由',
+                            children: [
+                                '/docs/react/react17/router/intro',
+                            ]
+                        },
                     ]
                 },
                 {

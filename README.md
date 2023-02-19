@@ -44,8 +44,19 @@ features:
         font-family: Wawati SC;
         font-size: 1.2rem !important;
     }
+    .sidebar-heading {
+        font-size: 1.03rem !important;
+    }
     .sidebar > .sidebar-links > li > a.sidebar-link {
         margin-left: -1rem;
+        font-size: 1.03rem !important;
+    }
+    .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
+        opacity: 0.8 !important;
+    }
+    .sidebar-group.is-sub-group > .sidebar-heading {
+       line-height: 1.6 !important;
+       font-size: 0.98rem !important;
     }
     .home-blog .hero h1 {
         font-size: 5.5rem !important;
