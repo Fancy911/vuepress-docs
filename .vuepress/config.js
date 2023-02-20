@@ -292,7 +292,7 @@ module.exports = {
                             title: 'React脚手架',
                             children: [
                                 '/docs/react/react17/cli/intro',
-                                // '/docs/react/react17/cli/todoList',
+                                '/docs/react/react17/cli/todo',
                             ]
                         },
                         {
