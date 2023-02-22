@@ -260,7 +260,25 @@ module.exports = {
                     ]
                 },
             ],
-            '/docs/promise/': [],
+            '/docs/promise/': [
+                '',
+                {
+                    title: 'AJAX',
+                    children: [
+                        '/docs/promise/ajax/intro',
+                        '/docs/promise/ajax/案例',
+                        '/docs/promise/ajax/jquery',
+                        '/docs/promise/ajax/fetch',
+                    ]
+                },
+                {
+                    title: 'Axios',
+                    children: [
+                        '/docs/promise/axios/intro',
+                        '/docs/promise/axios/base',
+                    ]
+                }
+            ],
             '/docs/react/': [
                 '',
                 {
