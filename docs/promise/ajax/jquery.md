@@ -57,3 +57,8 @@ $.ajax({
 })
 ```
 更多通用ajax请求的参数请参考[官方文档](https://www.jquery123.com/jQuery.ajax/)
+
+## 具体示例
+
+- [客户端代码示例](https://github.com/Fancy911/ajax-learning-demo/tree/main/2.jquery-ajax)
+- [服务端代码示例](https://github.com/Fancy911/ajax-learning-demo/blob/main/server.js)

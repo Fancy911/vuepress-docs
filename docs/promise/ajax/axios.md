@@ -54,7 +54,7 @@ axios.post('/axios-server',
 ).then(res => {});
 ```
 
-### 通用请求
+## 通用请求
 
 ```js
 axios({
@@ -88,3 +88,8 @@ axios({
     console.log(response.data);
 })
 ```
+
+## 具体示例
+
+- [客户端代码示例](https://github.com/Fancy911/ajax-learning-demo/tree/main/3.axios-ajax)
+- [服务端代码示例](https://github.com/Fancy911/ajax-learning-demo/blob/main/server.js)

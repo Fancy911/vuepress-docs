@@ -268,7 +268,9 @@ module.exports = {
                         '/docs/promise/ajax/intro',
                         '/docs/promise/ajax/案例',
                         '/docs/promise/ajax/jquery',
+                        '/docs/promise/ajax/axios',
                         '/docs/promise/ajax/fetch',
+                        '/docs/promise/ajax/跨域',
                     ]
                 },
                 {
