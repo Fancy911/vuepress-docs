@@ -263,7 +263,7 @@ module.exports = {
             '/docs/request/': [
                 '',
                 {
-                    title: 'AJAX',
+                    title: 'Part1-AJAX',
                     children: [
                         '/docs/request/ajax/intro',
                         '/docs/request/ajax/案例',
@@ -274,7 +274,7 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'Promise',
+                    title: 'Part2-Promise',
                     children: [
                         '/docs/request/promise/intro',
                         '/docs/request/promise/base',
@@ -285,7 +285,7 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'Axios',
+                    title: 'Part3-Axios',
                     children: [
                         '/docs/request/axios/intro',
                         '/docs/request/axios/base',
