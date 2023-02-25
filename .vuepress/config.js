@@ -38,7 +38,7 @@ module.exports = {
                     },
                     {
                         text: '异步请求',
-                        link: '/docs/promise/',
+                        link: '/docs/request/',
                     },
                     {
                         text: 'WebPack5',
@@ -260,24 +260,35 @@ module.exports = {
                     ]
                 },
             ],
-            '/docs/promise/': [
+            '/docs/request/': [
                 '',
                 {
                     title: 'AJAX',
                     children: [
-                        '/docs/promise/ajax/intro',
-                        '/docs/promise/ajax/案例',
-                        '/docs/promise/ajax/jquery',
-                        '/docs/promise/ajax/axios',
-                        '/docs/promise/ajax/fetch',
-                        '/docs/promise/ajax/跨域',
+                        '/docs/request/ajax/intro',
+                        '/docs/request/ajax/案例',
+                        '/docs/request/ajax/jquery',
+                        '/docs/request/ajax/axios',
+                        '/docs/request/ajax/fetch',
+                        '/docs/request/ajax/跨域',
+                    ]
+                },
+                {
+                    title: 'Promise',
+                    children: [
+                        '/docs/request/promise/intro',
+                        '/docs/request/promise/base',
+                        '/docs/request/promise/properties',
+                        '/docs/request/promise/api',
+                        '/docs/request/promise/question',
+                        '/docs/request/promise/custom',
                     ]
                 },
                 {
                     title: 'Axios',
                     children: [
-                        '/docs/promise/axios/intro',
-                        '/docs/promise/axios/base',
+                        '/docs/request/axios/intro',
+                        '/docs/request/axios/base',
                     ]
                 }
             ],
