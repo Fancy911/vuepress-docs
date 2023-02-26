@@ -87,5 +87,5 @@ tags:
 </html>
 ```
 ::: tip
-更多示例请查看 [Promise基本使用]()
+更多示例请查看 [Promise基本使用](https://github.com/Fancy911/Promise-Learning/tree/main/1-Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)
 :::

@@ -19,6 +19,12 @@ tags:
 6. 实现异步任务下的回调的执行：callbacks[]
 7. 实现指定多个回调执行的功能
 8. 同步修改状态和异步修改状态的处理，then的回调处理。
+9. 实现catch方法的功能
+10. 实现Promise.resolve方法
+11. 实现Promise.reject方法
+12. 实现Promise.all方法
+13. 实现Promise.race方法
+14. 实现then的异步链式调用
+15. 改造为ES6的class语法
 
-
-[完整的手写的Promise代码]()
+[完整的手写的Promise代码](https://github.com/Fancy911/Promise-Learning/tree/main/2-%E6%89%8B%E5%86%99Promise)

@@ -282,6 +282,7 @@ module.exports = {
                         '/docs/request/promise/api',
                         '/docs/request/promise/question',
                         '/docs/request/promise/custom',
+                        '/docs/request/promise/asyncAwait',
                     ]
                 },
                 {

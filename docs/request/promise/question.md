@@ -267,3 +267,29 @@ p.then(value => {
 
 上述代码中，`return new Promise(() => {});`这个`promise`对象的状态是`pendding`，所以后面的`then`方法的回调函数都不会执行了。
 所以，控制台中只会输出`111`。
+
+## promise中then的异步执行
+
+1. `then`方法中的回调函数是异步执行的
+2. `then`方法中的回调函数是在当前脚本所有同步任务执行完毕后才执行的
+请说出下面代码的执行结果
+```js
+let p1 = new Promise((resolve, reject) => {
+    reject('OK');
+    console.log(111);
+});
+
+p1.then(value => {
+    console.log(222);
+}, reason => {
+    console.log(444);
+});
+
+console.log(333);
+```
+控制台执行结果：
+```
+111
+333
+444
+```
