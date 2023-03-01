@@ -271,6 +271,7 @@ module.exports = {
                         '/docs/request/ajax/axios',
                         '/docs/request/ajax/fetch',
                         '/docs/request/ajax/跨域',
+                        '/docs/request/ajax/手写ajax',
                     ]
                 },
                 {
@@ -290,6 +291,7 @@ module.exports = {
                     children: [
                         '/docs/request/axios/intro',
                         '/docs/request/axios/base',
+                        '/docs/request/axios/源码分析',
                     ]
                 }
             ],

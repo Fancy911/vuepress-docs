@@ -6,6 +6,7 @@ categories:
  - 经典面试题
 tags:
  - promise
+ - 手写代码
 ---
 
 手写Promise，也叫Promise的自定义封装。
