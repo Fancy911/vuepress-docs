@@ -45,8 +45,8 @@ module.exports = {
                         link: '/docs/webpack/',
                     },
                     {
-                        text: 'Vue3',
-                        link: '/docs/vue3/',
+                        text: 'Vue',
+                        link: '/docs/vue/',
                     },
                     {
                         text: 'React',
@@ -55,6 +55,10 @@ module.exports = {
                     {
                         text: '小程序',
                         link: '/docs/wxapp/',
+                    },
+                    {
+                        text: '数据可视化',
+                        link: '/docs/data-visual/',
                     },
                 ],
             },
@@ -358,6 +362,7 @@ module.exports = {
             ],
             '/docs/wxapp/': [],
             '/docs/vue3/': [],
+            '/docs/data-visual/': [],
         },
         type: 'blog',
         blogConfig: {
