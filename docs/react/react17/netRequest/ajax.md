@@ -13,12 +13,12 @@ tags:
 3. React应用中需要集成`第三方ajax库`(或`自己封装`)
 
 ## 常用的ajax请求库
-1. jQuery: 比较重, 如果需要另外引入不建议使用
-2. axios: 轻量级, 建议使用
-    - 封装XmlHttpRequest对象的ajax
-    - promise风格
-    - 可以用在浏览器端和node服务器端
+1. `jQuery`: 比较重, 如果需要另外引入不建议使用
+2. `axios`: 轻量级, 建议使用
+    - 封装`XmlHttpRequest`对象的`ajax`
+    - `promise`风格
+    - 可以用在`浏览器端`和`node服务器端`
 
 ::: tip
-可以先学习一下ajax和axios，再进行下面的学习
+可以先跳转至[异步请求](https://fancy911.github.io/vuepress-docs/docs/request/)学习一下`ajax`和`axios`，再进行下面的学习
 :::
