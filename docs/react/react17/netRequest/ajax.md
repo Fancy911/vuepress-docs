@@ -1,5 +1,5 @@
 ---
-title: React中的ajax请求
+title: React中的网络请求
 date: 2023/02/21
 categories:
  - 前端

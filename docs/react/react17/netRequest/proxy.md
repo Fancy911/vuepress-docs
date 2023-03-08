@@ -14,7 +14,7 @@ tags:
 
 ## 方法1：配置`package.json`
 
-- 在package.json中追加如下配置
+- 在`package.json`中追加如下配置
 
 ```json
 "proxy":"http://localhost:5000"

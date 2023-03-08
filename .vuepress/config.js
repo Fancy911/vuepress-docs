@@ -337,16 +337,15 @@ module.exports = {
                             title: '网络请求',
                             children: [
                                 '/docs/react/react17/netRequest/ajax',
-                                '/docs/react/react17/netRequest/axios',
+                                '/docs/react/react17/netRequest/proxy',
                                 '/docs/react/react17/netRequest/githubDemo',
-                                '/docs/react/react17/netRequest/消息机制',
-                                '/docs/react/react17/netRequest/fetch',
                             ]
                         },
                         {
                             title: 'React路由',
                             children: [
                                 '/docs/react/react17/router/intro',
+                                '/docs/react/react17/router/api',
                             ]
                         },
                     ]
