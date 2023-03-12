@@ -350,9 +350,11 @@ module.exports = {
                         },
                         '/docs/react/react17/antd/intro',
                         {
-                            title: 'React组件库',
+                            title: 'Redux',
                             children: [
                                 '/docs/react/react17/redux/intro',
+                                '/docs/react/react17/redux/redux-core',
+                                '/docs/react/react17/redux/redux-api',
                             ]
                         },
                     ]
