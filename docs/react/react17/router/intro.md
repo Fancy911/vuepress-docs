@@ -98,6 +98,7 @@ history.listen((location, action) => {
 - `hash`模式是`URL`中的`#`后面的内容，如`http://localhost:3000/#/test`中的`#/test`就是`hash`。
 - `hash`模式不会向服务器发送请求，只会在`URL`中添加`#`后面的内容。
 - `hash`模式的`URL`中的`#`后面的内容称为`hash`，`hash`的变化不会引起页面的刷新。
+- `#`后面的内容被认为是`hash`（前台资源），不会作为资源发送给后端服务器。
 
 #### 2. `history`模式
 

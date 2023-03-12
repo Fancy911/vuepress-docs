@@ -345,6 +345,7 @@ module.exports = {
                             title: 'React路由',
                             children: [
                                 '/docs/react/react17/router/intro',
+                                '/docs/react/react17/router/base',
                                 '/docs/react/react17/router/api',
                             ]
                         },
