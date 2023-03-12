@@ -346,9 +346,15 @@ module.exports = {
                             children: [
                                 '/docs/react/react17/router/intro',
                                 '/docs/react/react17/router/base',
-                                '/docs/react/react17/router/api',
                             ]
                         },
+                        '/docs/react/react17/antd/intro',
+                        // {
+                        //     title: 'React组件库',
+                        //     children: [
+                        //         ''
+                        //     ]
+                        // },
                     ]
                 },
                 {

@@ -7,6 +7,7 @@ tags:
  - react
  - 路由
  - react-router-dom
+ - 路由常用API
 ---
 
 本章节我们先讨论`Router5`版本，后续我们学习完`hooks`，再学习`Router6`版本。
@@ -79,6 +80,20 @@ npm install react-router-dom@5
 	```
 
 4.  `src/index.js`文件中，将`<App/>`标签的的最外侧包裹上一个`<BrowserRouter>`或`<HashRouter>`
+
+::: tip
+`BrowserRouter`与`HashRouter`的区别
+1. 底层原理不一样：
+	- `BrowserRouter`使用的是`H5`的`history`API，不兼容`IE9`及以下版本。
+	- `HashRouter`使用的是`URL`的哈希值。
+2. `path`表现形式不一样
+	- `BrowserRouter`的路径中没有`#`, 例如：`localhost:3000/demo/test`
+	- `HashRouter`的路径包含`#`, 例如：`localhost:3000/#/demo/test`
+3. 刷新后对路由`state`参数的影响 (🌟)
+	- `BrowserRouter`没有任何影响，因为`state`保存在`history`对象中。
+	- `HashRouter`刷新后会导致路由`state`参数的丢失！！！
+4. 备注：`HashRouter`可以用于解决一些路径错误相关的问题 (比如，刷新二级路由页面时的资源丢失问题）
+:::
 
 ### 改造1: 区分路由组件和一般组件
 
@@ -528,22 +543,164 @@ export default class Detail extends Component {
 
 ## 路由跳转的两种模式push和replace
 
-## 十二、编程式路由导航
-					借助this.prosp.history对象上的API对操作路由跳转、前进、后退
-							-this.prosp.history.push()
-							-this.prosp.history.replace()
-							-this.prosp.history.goBack()
-							-this.prosp.history.goForward()
-							-this.prosp.history.go()
+默认的路由跳转方式是push，即将新的路由添加到路由栈中。也就是说，每次进行了路由跳转之后，都会在浏览器的历史记录中添加一条记录。
 
-## 十三、BrowserRouter与HashRouter的区别
-			1.底层原理不一样：
-						BrowserRouter使用的是H5的history API，不兼容IE9及以下版本。
-						HashRouter使用的是URL的哈希值。
-			2.path表现形式不一样
-						BrowserRouter的路径中没有#,例如：localhost:3000/demo/test
-						HashRouter的路径包含#,例如：localhost:3000/#/demo/test
-			3.刷新后对路由state参数的影响
-						(1).BrowserRouter没有任何影响，因为state保存在history对象中。
-						(2).HashRouter刷新后会导致路由state参数的丢失！！！
-			4.备注：HashRouter可以用于解决一些路径错误相关的问题。
+而replace是替换当前路由，会把当前路由替换成新的路由，而不会在浏览器的历史记录中添加一条记录。这样就可以不在浏览器的历史记录中留下痕迹。
+
+- 那么，如何将路由跳转的方式改为replace呢？
+- 在`Link`或`NavLink`标签中，通过`replace`属性来指定路由跳转的方式
+	```jsx
+	<Link to="/about" replace>关于</Link>
+	```
+
+## 编程式路由导航
+
+不借助`Link`或`NavLink`组件，通过借助`this.prosp.history`对象上的API对操作路由跳转、前进、后退，这就是编程式路由导航。
+
+```jsx
+this.prosp.history.push()
+this.prosp.history.replace()
+this.prosp.history.goBack()
+this.prosp.history.goForward()
+this.prosp.history.go()
+```
+
+我们在`Message`组件中，添加各种跳转方式的按钮，来演示编程式路由导航的使用。
+
+```jsx{14-23,25-34,36-38,40-42,44-46,67-78,84-86}
+import React, { Component } from 'react'
+import {Link,Route} from 'react-router-dom'
+import Detail from './Detail'
+
+export default class Message extends Component {
+	state = {
+		messageArr:[
+			{id:'01',title:'消息1'},
+			{id:'02',title:'消息2'},
+			{id:'03',title:'消息3'},
+		]
+	}
+
+	replaceShow = (id,title)=>{
+		//replace跳转+携带params参数
+		//this.props.history.replace(`/home/message/detail/${id}/${title}`)
+
+		//replace跳转+携带search参数
+		// this.props.history.replace(`/home/message/detail?id=${id}&title=${title}`)
+
+		//replace跳转+携带state参数
+		this.props.history.replace(`/home/message/detail`,{id,title})
+	}
+
+	pushShow = (id,title)=>{
+		//push跳转+携带params参数
+		// this.props.history.push(`/home/message/detail/${id}/${title}`)
+
+		//push跳转+携带search参数
+		// this.props.history.push(`/home/message/detail?id=${id}&title=${title}`)
+
+		//push跳转+携带state参数
+		this.props.history.push(`/home/message/detail`,{id,title})
+	}
+
+	back = ()=>{
+		this.props.history.goBack()
+	}
+
+	forward = ()=>{
+		this.props.history.goForward()
+	}
+
+	go = ()=>{
+		this.props.history.go(-2)
+	}
+
+	render() {
+		const {messageArr} = this.state
+		return (
+			<div>
+				<ul>
+					{
+						messageArr.map((msgObj)=>{
+							return (
+								<li key={msgObj.id}>
+
+									{/* 向路由组件传递params参数 */}
+									{/* <Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}`}>{msgObj.title}</Link> */}
+
+									{/* 向路由组件传递search参数 */}
+									{/* <Link to={`/home/message/detail/?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link> */}
+
+									{/* 向路由组件传递state参数 */}
+									<Link to={{pathname:'/home/message/detail',state:{id:msgObj.id,title:msgObj.title}}}>{msgObj.title}</Link>
+
+									&nbsp;<button onClick={()=> this.pushShow(msgObj.id,msgObj.title)}>push查看</button>
+									&nbsp;<button onClick={()=> this.replaceShow(msgObj.id,msgObj.title)}>replace查看</button>
+								</li>
+							)
+						})
+					}
+				</ul>
+				<hr/>
+				{/* 声明接收params参数 */}
+				{/* <Route path="/home/message/detail/:id/:title" component={Detail}/> */}
+
+				{/* search参数无需声明接收，正常注册路由即可 */}
+				{/* <Route path="/home/message/detail" component={Detail}/> */}
+
+				{/* state参数无需声明接收，正常注册路由即可 */}
+				<Route path="/home/message/detail" component={Detail}/>
+
+				<button onClick={this.back}>回退</button>&nbsp;
+				<button onClick={this.forward}>前进</button>&nbsp;
+				<button onClick={this.go}>go</button>
+			</div>
+		)
+	}
+}
+```
+
+## `withRouter`高阶组件
+
+`withRouter`是一个高阶组件，可以加工一般组件，让一般组件具备路由组件所特有的`API`。
+
+比如，我们想将上述的`前进`、`后退`、`go操作`写在一般组件`Header`中，但是`Header`组件不是路由组件，所以是没有`this.props.history`对象的，这时候就可以使用`withRouter`来加工它，让它具备路由组件所特有的`API`。
+
+Header组件代码如下：
+
+```jsx
+import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom' //引入withRouter,它其实本质是一个函数v
+
+class Header extends Component {
+
+	back = () => {
+		this.props.history.goBack()
+	}
+
+	forward = () => {
+		this.props.history.goForward()
+	}
+
+	go = () => {
+		this.props.history.go(-2)
+	}
+
+	render() {
+		console.log('Header组件收到的props是',this.props); // 被withRouter包裹之后，Header组件就也具有路由组件的history,location,match
+		return (
+			<div className="page-header">
+				<h2>React Router Demo</h2>
+				<button onClick={this.back}>回退</button>&nbsp;
+				<button onClick={this.forward}>前进</button>&nbsp;
+				<button onClick={this.go}>go</button>
+			</div>
+		)
+	}
+}
+
+export default withRouter(Header)
+
+//withRouter可以加工一般组件，让一般组件具备路由组件所特有的API
+//withRouter的返回值是一个新组件
+```
