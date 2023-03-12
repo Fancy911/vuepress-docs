@@ -349,12 +349,12 @@ module.exports = {
                             ]
                         },
                         '/docs/react/react17/antd/intro',
-                        // {
-                        //     title: 'React组件库',
-                        //     children: [
-                        //         ''
-                        //     ]
-                        // },
+                        {
+                            title: 'React组件库',
+                            children: [
+                                '/docs/react/react17/redux/intro',
+                            ]
+                        },
                     ]
                 },
                 {
