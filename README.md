@@ -40,6 +40,10 @@ features:
         font-family: Hannotate SC;
         font-size: 1.3rem !important;
     }
+    a.sidebar-link {
+        margin-left: -4px !important;
+        font-size: 0.98rem !important;
+    }
     .nav-links .nav-item {
         font-family: Wawati SC;
         font-size: 1.2rem !important;

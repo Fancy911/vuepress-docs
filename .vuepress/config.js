@@ -353,8 +353,9 @@ module.exports = {
                             title: 'Redux',
                             children: [
                                 '/docs/react/react17/redux/intro',
-                                '/docs/react/react17/redux/redux-core',
                                 '/docs/react/react17/redux/redux-api',
+                                '/docs/react/react17/redux/react-redux',
+                                '/docs/react/react17/redux/纯函数与高阶函数',
                             ]
                         },
                     ]
