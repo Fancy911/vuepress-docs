@@ -30,22 +30,32 @@ tags:
         3. 一般保存在`containers`文件夹下
 
 ## 常用API
-1.	Provider：让所有组件都可以得到state数据
- 
-2.	connect：用于包装 UI 组件生成容器组件
- 
-3.	mapStateToprops：将外部的数据（即state对象）转换为UI组件的标签属性
- 
-4.	mapDispatchToProps：将分发action的函数转换为UI组件的标签属性
 
-## 调试工具
+1. `Provider`：让所有组件都可以得到`state`数据
+2. `connect`：用于包装 UI 组件生成容器组件
+3. `mapStateToprops`：将外部的数据（即`state`对象）转换为UI组件的标签属性
+4. `mapDispatchToProps`：将分发`action`的函数转换为UI组件的标签属性
 
-Redux-Devtools
+## Redux开发者工具
 
-## 工具依赖
+在chrome浏览器中安装`Redux DevTools`插件
 
-npm install --save-dev redux-devtools-extension
+（科学上网）打开chrome应用商店，搜索`Redux DevTools`，点进去，点击`添加到chrome`，安装成功
 
+<img src="./imgs/插件.png">
 
+但是，光安装了这个插件，想要在项目中使用，还需要做一些配置
 
+### 1.安装依赖
 
+```bash
+npm install redux-devtools-extension
+``` 
+
+### 2.store中进行配置
+```js
+import {composeWithDevTools} from 'redux-devtools-extension'
+
+// 创建store时，第二个参数用composeWithDevTools包裹
+const store = createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))
+```
