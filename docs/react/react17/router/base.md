@@ -12,7 +12,7 @@ tags:
 
 本章节我们先讨论`Router5`版本，后续我们学习完`hooks`，再学习`Router6`版本。
 
-整体路由项目的GitHub地址：[router5的基本使用](https://github.com/Fancy911/React-Router/tree/main/router5%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)
+整体路由项目的GitHub地址：[router5的基本使用](https://github.com/Fancy911/React-Learning-Demo-ALL/tree/main/React-Router)
 
 ## `react-router-dom`是什么
 

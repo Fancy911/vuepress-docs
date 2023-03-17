@@ -359,6 +359,18 @@ module.exports = {
                                 '/docs/react/react17/redux/案例',
                             ]
                         },
+                        {
+                            title: '扩展',
+                            children: [
+                                '/docs/react/react17/extension/setState',
+                                '/docs/react/react17/extension/lazyload',
+                                '/docs/react/react17/extension/hooks',
+                                '/docs/react/react17/extension/fragment',
+                                '/docs/react/react17/extension/context',
+                                '/docs/react/react17/extension/组件优化',
+                                '/docs/react/react17/extension/组件通信',
+                            ]
+                        },
                     ]
                 },
                 {
