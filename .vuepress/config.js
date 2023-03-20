@@ -374,7 +374,7 @@ module.exports = {
                           ]
                       },
                       {
-                        title: 'React-Router-6',
+                        title: 'React-Router6',
                         children: [
                             '/docs/react/react17/router6/intro',
                             '/docs/react/react17/router6/components',
