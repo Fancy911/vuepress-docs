@@ -370,9 +370,8 @@ module.exports = {
                 {
                     title: 'React-18',
                     children: [
-                        '',
                         {
-                            title: '订餐APP',
+                            title: '订餐APP实战',
                             children: [
                                 '/docs/react/react18/orderFood/intro',
                             ],
