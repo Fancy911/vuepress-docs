@@ -374,6 +374,8 @@ module.exports = {
                             title: '订餐APP实战',
                             children: [
                                 '/docs/react/react18/orderFood/intro',
+                                '/docs/react/react18/orderFood/fontAwesome',
+                                '/docs/react/react18/orderFood/context',
                             ],
                         },
                     ],
