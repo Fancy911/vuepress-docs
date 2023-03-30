@@ -285,13 +285,18 @@ module.exports = {
                 },
                 {
                     title: 'Part3-Axios',
-                    children: ['/docs/request/axios/intro', '/docs/request/axios/base', '/docs/request/axios/源码分析'],
+                    children: [
+                        '/docs/request/axios/intro',
+                        '/docs/request/axios/base',
+                        '/docs/request/axios/源码分析'
+                    ],
                 },
+                '/docs/request/fetch/fetch'
             ],
             '/docs/react/': [
                 '',
                 {
-                    title: 'React16-17',
+                    title: 'React15+',
                     children: [
                         {
                             title: 'React基础',
@@ -356,6 +361,11 @@ module.exports = {
                                 '/docs/react/react17/extension/组件通信',
                             ],
                         },
+                    ],
+                },
+                {
+                    title: 'React17+Hooks',
+                    children: [
                         {
                             title: 'React-Router6',
                             children: [
@@ -365,17 +375,23 @@ module.exports = {
                                 '/docs/react/react17/router6/demo',
                             ],
                         },
-                    ],
-                },
-                {
-                    title: 'React-18',
-                    children: [
                         {
                             title: '订餐APP实战',
                             children: [
                                 '/docs/react/react18/orderFood/intro',
                                 '/docs/react/react18/orderFood/fontAwesome',
                                 '/docs/react/react18/orderFood/context',
+                                '/docs/react/react18/orderFood/setState',
+                                '/docs/react/react18/orderFood/effect',
+                                '/docs/react/react18/orderFood/reducer',
+                            ],
+                        },
+                        '/docs/react/react18/memo',
+                        '/docs/react/react18/useCallback',
+                        {
+                            title: 'React接口请求实战',
+                            children: [
+                                '/docs/react/react18/formDemo/Strapi',
                             ],
                         },
                     ],
