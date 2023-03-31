@@ -338,16 +338,6 @@ module.exports = {
                         },
                         '/docs/react/react17/antd/intro',
                         {
-                            title: 'Redux',
-                            children: [
-                                '/docs/react/react17/redux/intro',
-                                '/docs/react/react17/redux/redux-api',
-                                '/docs/react/react17/redux/react-redux',
-                                '/docs/react/react17/redux/纯函数',
-                                '/docs/react/react17/redux/案例',
-                            ],
-                        },
-                        {
                             title: '扩展',
                             children: [
                                 '/docs/react/react17/extension/setState',
@@ -392,8 +382,19 @@ module.exports = {
                             title: 'React接口请求实战',
                             children: [
                                 '/docs/react/react18/formDemo/Strapi',
+                                '/docs/react/react18/formDemo/自定义钩子',
                             ],
                         },
+                    ],
+                },
+                {
+                    title: 'Redux',
+                    children: [
+                        '/docs/react/redux/intro',
+                        '/docs/react/redux/redux-api',
+                        '/docs/react/redux/react-redux',
+                        '/docs/react/redux/纯函数',
+                        '/docs/react/redux/案例',
                     ],
                 },
                 {
