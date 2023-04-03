@@ -249,12 +249,33 @@ module.exports = {
                 '',
                 '/docs/nodejs/intro.md',
                 {
-                    title: 'CommonJS模块化规范',
-                    children: ['/docs/nodejs/commonjs/intro', '/docs/nodejs/commonjs/demo'],
+                    title: 'Buffer(缓冲器)',
+                    children: [
+                        '/docs/nodejs/buffer/intro', 
+                        '/docs/nodejs/buffer/demo'
+                    ],
+                },
+                {
+                    title: '计算机基础',
+                    children: [
+                        '/docs/nodejs/computer/base', 
+                        '/docs/nodejs/computer/进程与线程'
+                    ],
+                },
+                {
+                    title: 'fs内置模块',
+                    children: [
+                        '/docs/nodejs/fs/intro', 
+                        '/docs/nodejs/fs/write',
+                        '/docs/nodejs/fs/read',
+                    ],
                 },
                 {
                     title: 'NodeJS常用内置模块',
-                    children: ['/docs/nodejs/nodeModule/path', '/docs/nodejs/nodeModule/fs'],
+                    children: [
+                        '/docs/nodejs/nodeModule/path',
+                        '/docs/nodejs/nodeModule/fs'
+                    ],
                 },
             ],
             '/docs/request/': [
