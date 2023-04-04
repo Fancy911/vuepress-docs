@@ -6,6 +6,7 @@ categories:
  - 后端
 tags:
  - fs
+ - node内置模块
 ---
 
 <img src="./imgs/1.png" width="80%">

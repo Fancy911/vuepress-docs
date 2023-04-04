@@ -268,13 +268,26 @@ module.exports = {
                         '/docs/nodejs/fs/intro', 
                         '/docs/nodejs/fs/write',
                         '/docs/nodejs/fs/read',
+                        '/docs/nodejs/fs/move',
+                        '/docs/nodejs/fs/delete',
+                        '/docs/nodejs/fs/dir',
+                        '/docs/nodejs/fs/status',
+                        '/docs/nodejs/fs/path',
+                        '/docs/nodejs/fs/demo',
                     ],
                 },
                 {
-                    title: 'NodeJS常用内置模块',
+                    title: 'path内置模块',
                     children: [
-                        '/docs/nodejs/nodeModule/path',
-                        '/docs/nodejs/nodeModule/fs'
+                        '/docs/nodejs/path/base', 
+                    ],
+                },
+                {
+                    title: 'HTTP',
+                    children: [
+                        '/docs/nodejs/http/http_proto', 
+                        '/docs/nodejs/http/network_base', 
+                        '/docs/nodejs/http/http_module', 
                     ],
                 },
             ],
