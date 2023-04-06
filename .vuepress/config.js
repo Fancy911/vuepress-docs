@@ -286,8 +286,10 @@ module.exports = {
                     title: 'HTTP',
                     children: [
                         '/docs/nodejs/http/http_proto', 
-                        '/docs/nodejs/http/network_base', 
-                        '/docs/nodejs/http/http_module', 
+                        '/docs/nodejs/http/create_http', 
+                        '/docs/nodejs/http/get_http', 
+                        '/docs/nodejs/http/http_request_demo', 
+                        '/docs/nodejs/http/set_http_response', 
                     ],
                 },
             ],

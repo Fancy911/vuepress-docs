@@ -64,25 +64,74 @@ HTTP请求报文的组成如下：
 
 <img src="./imgs/请求头.png">
 
-｜请求头｜说明｜
-｜:---:｜:---:｜
-｜Host｜请求资源所在服务器的域名和端口号｜
-｜Connection｜浏览器与服务器之间连接的类型｜
-｜Cache-Control｜浏览器缓存机制｜
-｜Upgrade-Insecure-Requests｜升级为安全请求｜
-｜User-Agent｜发出请求的浏览器的相关信息｜
-｜Accept｜浏览器能够处理的内容类型｜
-｜Accept-Charset｜浏览器能够显示的字符集｜
-｜Accept-Encoding｜浏览器能够处理的压缩编码｜
-｜Accept-Language｜浏览器当前设置的语言｜
-｜Authorization｜Web服务器对客户端的授权信息｜
-｜Cookie｜当前请求携带的Cookie｜
-｜Referer｜发出请求的页面地址｜
-
+| 请求头 | 说明 |
+| ----- | ---- |
+| Host | 请求的域名和端口号 |
+| Connection | 连接状态，比如：`keep-alive`（保持连接） ; `close`（关闭连接） |
+| Cache-Control | 浏览器缓存机制，比如：缓存控制 `max-age=0` (没有缓存) |
+| Upgrade-Insecure-Requests | 升级为安全请求，将网页中的`http`请求转化为`https`请求(很少用)老网站升级|
+| User-Agent | 用户代理，客户端字符串标识，服务器可以通过这个标识来识别这个请求来自哪个客户端 ，一般在PC端和手机端的区分 |
+| Accept | 设置浏览器能够处理的内容类型 |
+| Accept-Charset | 设置浏览器能够显示的字符集 |
+| Accept-Encoding | 设置浏览器能够处理的压缩编码 |
+| Accept-Language | 设置浏览器当前设置的语言，`q=0.7`为喜好系数，满分为`1` |
+| Authorization | Web服务器对客户端的授权信息 |
+| Cookie | 当前请求携带的`Cookie`，「后面单独会讲」 |
+| Referer | 发出请求的页面地址 |
 
 ### 3. HTTP请求体
 
-## 响应报文的组成
+请求体内容的格式是非常灵活的，
+- (可以是空)==> `GET请求`
+- (也可以是字符串，还可以是`JSON`)===> `POST请求 `
 
-## 创建HTTP服务
+例如:
+- 字符串: `keywords=手机&price=2000`
+- JSON: `{"keywords":"手机","price":2000}`
 
+
+## 响应报文
+
+<img src="./imgs/响应报文.png">
+
+- 响应行
+- 响应头
+- 空行
+- 响应体
+### 响应行
+
+`HTTP/1.1 200 OK`
+
+- `HTTP/1.1`: `HTTP`协议版本号
+- `200`: 响应状态码 [参考该博文查看其他状态码](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
+- `OK`: 响应状态描述, 和状态码一一对应
+
+### 响应头
+
+| 响应头 | 说明 |
+| ----- | ---- |
+| Cache-Control | 浏览器缓存机制，比如：`private`私有的，只允许客户端缓存数据 |
+| Connection | 连接状态，比如：`keep-alive`保持连接 |
+| Content-Type | 响应体的数据类型，比如：`text/html;charset=utf-8` 设置响应体的数据类型以及字符集,响应体为`html`，字符集`utf-8` |
+| Date | 响应的时间 |
+| Server | 服务器的信息 |
+| Set-Cookie | 设置`Cookie`,比如：`name=zs; path=/; domain=.baidu.com; expires=Wed, 21 Oct 2015 07:28:00 GMT`; |
+| Content-Encoding | 响应体的压缩编码 |
+| Content-Length | 响应体的长度，单位为字节 |
+| Content-Language | 响应体的语言 |
+| Location | 重定向地址 |
+
+
+### 响应体
+
+响应体内容的类型是非常灵活的，常见的类型有
+1. HTML
+2. CSS
+3. JS
+4. 图片
+5. 视频
+6. JSON
+
+::: tip
+补充知识：[IP标准分类](https://zhuanlan.zhihu.com/p/193729352)
+:::
