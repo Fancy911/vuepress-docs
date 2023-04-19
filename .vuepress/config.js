@@ -304,6 +304,14 @@ module.exports = {
                         '/docs/nodejs/modules/commonJS', 
                     ],
                 },
+                {
+                    title: '包管理工具',
+                    children: [
+                        '/docs/nodejs/packageManger/intro', 
+                        '/docs/nodejs/packageManger/npm', 
+                        '/docs/nodejs/packageManger/yarn', 
+                    ],
+                },
             ],
             '/docs/request/': [
                 '',
