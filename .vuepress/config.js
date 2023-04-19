@@ -295,6 +295,15 @@ module.exports = {
                         '/docs/nodejs/http/getpost', 
                     ],
                 },
+                {
+                    title: '模块化',
+                    children: [
+                        '/docs/nodejs/modules/intro', 
+                        '/docs/nodejs/modules/exportData', 
+                        '/docs/nodejs/modules/requireData', 
+                        '/docs/nodejs/modules/commonJS', 
+                    ],
+                },
             ],
             '/docs/request/': [
                 '',
