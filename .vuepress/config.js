@@ -308,7 +308,8 @@ module.exports = {
                     title: '包管理工具',
                     children: [
                         '/docs/nodejs/packageManger/intro', 
-                        '/docs/nodejs/packageManger/npm', 
+                        '/docs/nodejs/packageManger/npm',
+                        '/docs/nodejs/packageManger/publishPackage', 
                         '/docs/nodejs/packageManger/yarn', 
                     ],
                 },
