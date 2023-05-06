@@ -469,7 +469,39 @@ module.exports = {
                 },
             ],
             '/docs/wxapp/': [],
-            '/docs/vue3/': [],
+            '/docs/vue/': [
+                '',
+                {
+                    title: 'Vue2.x',
+                    children: [
+                        {
+                            title: 'Vue核心',
+                            children: [
+                                '/docs/vue/vue2/core/intro',
+                                '/docs/vue/vue2/core/base',
+                                '/docs/vue/vue2/core/eldata',
+                                '/docs/vue/vue2/core/mvvm',
+                                '/docs/vue/vue2/core/defineProperty',
+                                '/docs/vue/vue2/core/事件处理',
+                                '/docs/vue/vue2/core/计算属性与监听',
+                            ],
+                        },
+                        {
+                            title: 'Vue组件化编程',
+                            children: [],
+                        },
+                        {
+                            title: 'Vue脚手架',
+                            children: [],
+                        },
+                    ],
+                },
+                {
+                    title: 'Vue3',
+                    children: [
+                    ],
+                },
+            ],
             '/docs/data-visual/': [],
         },
         type: 'blog',
