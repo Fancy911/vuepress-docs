@@ -484,6 +484,10 @@ module.exports = {
                                 '/docs/vue/vue2/core/defineProperty',
                                 '/docs/vue/vue2/core/事件处理',
                                 '/docs/vue/vue2/core/计算属性与监听',
+                                '/docs/vue/vue2/core/样式绑定',
+                                '/docs/vue/vue2/core/条件渲染',
+                                '/docs/vue/vue2/core/列表渲染',
+                                '/docs/vue/vue2/core/vue监测数据改变的原理',
                             ],
                         },
                         {
