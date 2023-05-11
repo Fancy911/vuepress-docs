@@ -494,7 +494,7 @@ module.exports = {
                                 '/docs/vue/vue2/core/lifeCircle',
                             ],
                         },
-                        '/docs/vue/vue2/component/非单文件',
+                        '/docs/vue/vue2/component/VueComponent',
                         {
                             title: 'Vue脚手架',
                             children: [],

@@ -1,5 +1,5 @@
 ---
-title: 单文件组件
+title: VueComponent
 date: 2023/05/11
 categories:
  - 前端
