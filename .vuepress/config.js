@@ -488,12 +488,13 @@ module.exports = {
                                 '/docs/vue/vue2/core/条件渲染',
                                 '/docs/vue/vue2/core/列表渲染',
                                 '/docs/vue/vue2/core/vue监测数据改变的原理',
+                                '/docs/vue/vue2/core/收集表单数据',
+                                '/docs/vue/vue2/core/filter',
+                                '/docs/vue/vue2/core/directive',
+                                '/docs/vue/vue2/core/lifeCircle',
                             ],
                         },
-                        {
-                            title: 'Vue组件化编程',
-                            children: [],
-                        },
+                        '/docs/vue/vue2/component/非单文件',
                         {
                             title: 'Vue脚手架',
                             children: [],
