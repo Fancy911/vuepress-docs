@@ -147,38 +147,88 @@ tags:
 ```
 ### Vue.set()方法
 
-在讲解Vue的数据监测原理之前，我们先来看一个Vue提供的方法：Vue.set()，这个方法可以用来给对象添加属性，也可以用来给数组添加元素。
+在讲解Vue的数据监测原理之前，我们先来看一个Vue提供的方法：`Vue.set()`，这个方法可以用来给对象添加属性，也可以用来给数组添加元素。
+
+#### 给对象添加新属性触发视图更新
+
+为什么需要用这个方法来给对象添加属性呢？
+
+因为，在vue中，如果直接给对象添加属性，那么这个属性是不会被监测的，也就是说，如果这个属性的值发生了改变，那么页面是不会重新渲染的。
+
+比如下面的例子：
+
+```js
+let student = {
+    name:'tom',
+    age:18,
+}
+```
+
+如果我想让页面呈现学生的这些属性，那么我可以这样写：
 
 ```html
-
+<h3>姓名：{{student.name}}</h3>
+<h3>年龄：{{student.age}}</h3>
 ```
+
+但是如果，我现在想直接新增一个sex属性 `student.sex = '男'` ，然后把模板改写为
+
+```html
+<h3>姓名：{{student.name}}</h3>
+<h3>年龄：{{student.age}}</h3>
+<h3 v-if="student.sex">性别：{{student.sex}}</h3>
+```
+
+是不会触发视图的重新渲染的。我们必须通过Set方法`this.$set(this.student,'sex','男')`，来为这个student对象添加sex属性，才会触发视图的更新。
+
+#### 改变数组元素值触发视图更新
+
+假设有一个属性，是数组形式
+
+```js
+data() {
+    return {
+        hobby: ['吃饭','睡觉','打豆豆']
+    }
+}
+
+<h3>兴趣：{{ hobby }}</h3>
+```
+
+通过`hobby[1] = '学习'` 这种方式，是触发不了视图的更新的，就需要使用Set函数。 `this.$set(this.hobby, 1, '学习')`，这样就可以触发视图的更新了。
 
 ## Vue监测**数组数据**改变的原理
 
-```html
-```
+我们知道，能使原数组发生改变的方法有这么几个：
+- push()
+- pop()
+- shift()
+- unshift()
+- splice()
+- sort()
+- reverse()
+而 Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新
 
 ## Vue监视数据的原理总结
 
 1. vue会监视data中所有层次的数据。
 
 2. 如何监测对象中的数据？
-    通过setter实现监视，且要在new Vue时就传入要监测的数据。
-        (1).对象中后追加的属性，Vue默认不做响应式处理
-        (2).如需给后添加的属性做响应式，请使用如下API：
-                        Vue.set(target，propertyName/index，value) 或 
-                        vm.$set(target，propertyName/index，value)
+    - 通过setter实现监视，且要在new Vue时就传入要监测的数据。
+        - (1).对象中后追加的属性，Vue默认不做响应式处理
+        - (2).如需给后添加的属性做响应式，请使用如下API：
+            `Vue.set(target，propertyName/index，value)` 或  `vm.$set(target，propertyName/index，value)`
 
 3. 如何监测数组中的数据？
-    通过包裹数组更新元素的方法实现，本质就是做了两件事：
-        (1).调用原生对应的方法对数组进行更新。
-        (2).重新解析模板，进而更新页面。
+    - 通过包裹数组更新元素的方法实现，本质就是做了两件事：
+        - (1).调用原生对应的方法对数组进行更新。
+        - (2).重新解析模板，进而更新页面。
 
-4.在Vue修改数组中的某个元素一定要用如下方法：
-    1.使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()
-    2.Vue.set() 或 vm.$set()
+4. 在Vue修改数组中的某个元素一定要用如下方法：
+    1. 使用这些API: `push()、pop()、shift()、unshift()、splice()、sort()、reverse()`
+    2. `Vue.set()` 或 `vm.$set()`
 
-特别注意：Vue.set() 和 vm.$set() 不能给vm 或 vm的根数据对象 添加属性！！！
+- 特别注意：`Vue.set()` 和 `vm.$set()` 不能给vm或vm的 **根数据对象** 添加属性！！！
 
 ```html
 <!DOCTYPE html>

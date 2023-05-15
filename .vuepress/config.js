@@ -497,7 +497,9 @@ module.exports = {
                         '/docs/vue/vue2/component/VueComponent',
                         {
                             title: 'Vue脚手架',
-                            children: [],
+                            children: [
+                                '/docs/vue/vue2/cli/intro',
+                            ],
                         },
                     ],
                 },
