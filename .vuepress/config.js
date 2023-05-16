@@ -499,6 +499,9 @@ module.exports = {
                             title: 'Vue脚手架',
                             children: [
                                 '/docs/vue/vue2/cli/intro',
+                                '/docs/vue/vue2/cli/组件自定义事件',
+                                '/docs/vue/vue2/cli/全局事件总线',
+                                '/docs/vue/vue2/cli/消息发布订阅',
                             ],
                         },
                     ],
