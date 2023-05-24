@@ -7,6 +7,30 @@ tags:
  - vue2.x
  - vue-cli
 ---
+## 介绍
+
+- Vue 脚手架是 Vue 官方提供的标准化开发工具(开发平台)。
+- 文档: [https://cli.vuejs.org/zh/](https://cli.vuejs.org/zh/)。
+
+## 安装
+
+1. 第一步(仅第一次执行):全局安装 `@vue/cli`。
+```bash
+npm install -g @vue/cli
+```
+
+2. 第二步:切换到你要创建项目的目录，然后使用命令创建项目
+```bash
+vue create 你的项目名称
+```
+
+3. 第三步:启动项目
+```bash
+npm run serve
+```
+
+> 如出现下载缓慢请配置 npm 淘宝镜像:
+> `npm set config registry https://registry.npm.taobao.org`
 
 ## 1.脚手架文件结构
 ```
