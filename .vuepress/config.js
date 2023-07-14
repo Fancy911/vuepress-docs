@@ -21,8 +21,8 @@ module.exports = {
                 icon: 'reco-date',
             },
             {
-                text: '学习笔记',
-                icon: 'reco-document',
+                text: '大前端',
+                icon: 'reco-api',
                 items: [
                     {
                         text: 'ES6-11',
@@ -63,6 +63,30 @@ module.exports = {
                 ],
             },
             {
+                text: 'Python全栈',
+                icon: 'reco-three',
+                items: [
+                    {
+                        text: 'Python基础',
+                        link: '/python/base/',
+                    },
+                    {
+                        text: 'Python高级',
+                        link: '/python/advanced/',
+                    },
+                ],
+            },
+            {
+                text: '信息安全',
+                icon: 'reco-other',
+                items: [
+                    {
+                        text: '磐石计划',
+                        link: '/safe/stone/',
+                    }
+                ],
+            },
+            {
                 text: '读书会',
                 icon: 'reco-menu',
                 items: [
@@ -84,40 +108,35 @@ module.exports = {
                     },
                 ],
             },
-            {
-                text: '面经汇总',
-                icon: 'reco-coding',
-                items: [
-                    {
-                        text: 'CSS&HTML',
-                        link: '/interview/csshtml/',
-                    },
-                    {
-                        text: 'JavaScript&ES6',
-                        link: '/interview/js/',
-                    },
-                    {
-                        text: '计算机网络',
-                        link: '/interview/network/',
-                    },
-                    {
-                        text: 'Vue',
-                        link: '/interview/vue/',
-                    },
-                    {
-                        text: 'React',
-                        link: '/interview/react/',
-                    },
-                    {
-                        text: 'React',
-                        link: '/interview/leetcode/',
-                    },
-                ],
-            },
             // {
-            //     text: '小游戏',
-            //     icon: 'reco-api',
-            //     link: '/miniGame/',
+            //     text: '前端面经',
+            //     icon: 'reco-coding',
+            //     items: [
+            //         {
+            //             text: 'CSS&HTML',
+            //             link: '/interview/csshtml/',
+            //         },
+            //         {
+            //             text: 'JavaScript&ES6',
+            //             link: '/interview/js/',
+            //         },
+            //         {
+            //             text: '计算机网络',
+            //             link: '/interview/network/',
+            //         },
+            //         {
+            //             text: 'Vue',
+            //             link: '/interview/vue/',
+            //         },
+            //         {
+            //             text: 'React',
+            //             link: '/interview/react/',
+            //         },
+            //         {
+            //             text: 'Leetcode',
+            //             link: '/interview/leetcode/',
+            //         },
+            //     ],
             // },
             {
                 text: 'Contact',
@@ -513,6 +532,13 @@ module.exports = {
                 },
             ],
             '/docs/data-visual/': [],
+            '/python/base/': [
+                '',
+            ],
+            '/safe/stone/': [
+                '/safe/stone/初探安全.md',
+                '/safe/stone/环境搭建.md',
+            ]
         },
         type: 'blog',
         blogConfig: {
