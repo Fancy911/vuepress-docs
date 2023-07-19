@@ -538,6 +538,17 @@ module.exports = {
             '/fe/data-visual/': [],
             '/fe/interview/': [
                 '',
+                {
+                    title: 'CSS&HTML',
+                    children: [
+                        {
+                            title: 'Vue核心',
+                            children: [
+                                '/fe/interview/css/',
+                            ],
+                        },
+                    ],
+                },
             ],
             '/python/base/': [
                 '',
