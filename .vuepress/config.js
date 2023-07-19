@@ -26,39 +26,43 @@ module.exports = {
                 items: [
                     {
                         text: 'ES6-11',
-                        link: '/docs/es6/',
+                        link: '/fe/es6/',
                     },
                     {
                         text: 'TypeScript',
-                        link: '/docs/typescript/',
+                        link: '/fe/typescript/',
                     },
                     {
                         text: 'NodeJS',
-                        link: '/docs/nodejs/',
+                        link: '/fe/nodejs/',
                     },
                     {
                         text: '异步请求',
-                        link: '/docs/request/',
+                        link: '/fe/request/',
                     },
                     {
                         text: 'WebPack5',
-                        link: '/docs/webpack/',
+                        link: '/fe/webpack/',
                     },
                     {
                         text: 'Vue',
-                        link: '/docs/vue/',
+                        link: '/fe/vue/',
                     },
                     {
                         text: 'React',
-                        link: '/docs/react/',
+                        link: '/fe/react/',
                     },
                     {
                         text: '小程序',
-                        link: '/docs/wxapp/',
+                        link: '/fe/wxapp/',
                     },
                     {
                         text: '数据可视化',
-                        link: '/docs/data-visual/',
+                        link: '/fe/data-visual/',
+                    },
+                    {
+                        text: '面经专场',
+                        link: '/fe/interview/',
                     },
                 ],
             },
@@ -161,7 +165,7 @@ module.exports = {
             '/books/textType/': [],
             '/books/mediaType/': [],
             '/books/tecnType/': [],
-            '/docs/webpack/': [
+            '/fe/webpack/': [
                 '',
                 {
                     title: '基础配置',
@@ -224,8 +228,8 @@ module.exports = {
                     ],
                 },
             ],
-            '/docs/es6/': [],
-            '/docs/typescript/': [
+            '/fe/es6/': [],
+            '/fe/typescript/': [
                 '',
                 {
                     title: 'Ts入门',
@@ -264,7 +268,7 @@ module.exports = {
                     children: [],
                 },
             ],
-            '/docs/nodejs/': [
+            '/fe/nodejs/': [
                 '',
                 '/docs/nodejs/intro.md',
                 {
@@ -342,7 +346,7 @@ module.exports = {
                     ],
                 },
             ],
-            '/docs/request/': [
+            '/fe/request/': [
                 '',
                 {
                     title: 'Part1-AJAX',
@@ -378,7 +382,7 @@ module.exports = {
                 },
                 '/docs/request/fetch/fetch'
             ],
-            '/docs/react/': [
+            '/fe/react/': [
                 '',
                 {
                     title: 'React15+',
@@ -487,8 +491,8 @@ module.exports = {
                     children: [],
                 },
             ],
-            '/docs/wxapp/': [],
-            '/docs/vue/': [
+            '/fe/wxapp/': [],
+            '/fe/vue/': [
                 '',
                 {
                     title: 'Vue2.x',
@@ -531,7 +535,10 @@ module.exports = {
                     ],
                 },
             ],
-            '/docs/data-visual/': [],
+            '/fe/data-visual/': [],
+            '/fe/interview/': [
+                '',
+            ],
             '/python/base/': [
                 '',
             ],
