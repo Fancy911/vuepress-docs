@@ -71,12 +71,16 @@ module.exports = {
                 icon: 'reco-three',
                 items: [
                     {
-                        text: 'Python基础',
-                        link: '/python/base/',
+                        text: 'Python-Web',
+                        link: '/python/web/',
                     },
                     {
-                        text: 'Python高级',
-                        link: '/python/advanced/',
+                        text: 'Python-爬虫',
+                        link: '/python/spider/',
+                    },
+                    {
+                        text: '数据库',
+                        link: '/python/database/',
                     },
                 ],
             },
@@ -550,8 +554,20 @@ module.exports = {
                     ],
                 },
             ],
-            '/python/base/': [
+            '/python/web/': [
                 '',
+                '/python/web/install',
+                '/python/web/yufa',
+            ],
+            '/python/database/': [
+                '',
+                {
+                    title: 'MySQL',
+                    children: [
+                       '/python/database/mysql/intro',
+                       '/python/database/mysql/sqlbase',
+                    ],
+                },
             ],
             '/safe/stone/': [
                 '/safe/stone/初探安全.md',
@@ -564,10 +580,10 @@ module.exports = {
                 location: 2,
                 text: '类目',
             },
-            tag: {
-                location: 3,
-                text: '标签',
-            },
+            // tag: {
+            //     location: 3,
+            //     text: '标签',
+            // },
         },
         friendLink: [
             {
