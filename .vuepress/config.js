@@ -556,8 +556,8 @@ module.exports = {
             ],
             '/python/web/': [
                 '',
-                '/python/web/install',
-                '/python/web/yufa',
+                '/python/web/1.install',
+                '/python/web/2.yufa',
             ],
             '/python/database/': [
                 '',
