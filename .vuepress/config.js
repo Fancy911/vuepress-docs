@@ -95,7 +95,7 @@ module.exports = {
                 ],
             },
             {
-                text: '读书会',
+                text: '价值积累',
                 icon: 'reco-menu',
                 items: [
                     {
@@ -103,15 +103,15 @@ module.exports = {
                         link: '/books/list/',
                     },
                     {
-                        text: '读后感',
+                        text: '读书笔记',
                         link: '/books/textType/',
                     },
                     {
-                        text: '观后感',
+                        text: '课程笔记',
                         link: '/books/mediaType/',
                     },
                     {
-                        text: '技术类',
+                        text: '技术笔记',
                         link: '/books/tecnType/',
                     },
                 ],
@@ -167,7 +167,10 @@ module.exports = {
                 '/books/list/photographyWebsite', //摄影网站
             ],
             '/books/textType/': [],
-            '/books/mediaType/': [],
+            '/books/mediaType/': [
+                '',
+                '/books/mediaType/商业画布',   
+            ],
             '/books/tecnType/': [],
             '/fe/webpack/': [
                 '',
