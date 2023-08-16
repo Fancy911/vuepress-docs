@@ -540,10 +540,10 @@ module.exports = {
                 location: 2,
                 text: '类目',
             },
-            // tag: {
-            //     location: 3,
-            //     text: '标签',
-            // },
+            tag: {
+                location: 3,
+                text: '标签',
+            },
         },
         friendLink: [
             {
