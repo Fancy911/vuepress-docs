@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用Ts面向对象实现游戏逻辑 | Hi! CC自习室</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/vuepress-docs/logo1.png">
+    <link rel="dns-prefetch" href="https://s2.loli.net">
+    <meta name="description" content="这是我的第一个 VuePress 站点">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/vuepress-docs/assets/css/0.styles.38e80b41.css" as="style"><link rel="preload" href="/vuepress-docs/assets/js/app.aa48dd5e.js" as="script"><link rel="preload" href="/vuepress-docs/assets/js/3.fdc8566e.js" as="script"><link rel="preload" href="/vuepress-docs/assets/js/1.4447dbcf.js" as="script"><link rel="preload" href="/vuepress-docs/assets/js/52.93ea8703.js" as="script"><link rel="prefetch" href="/vuepress-docs/assets/js/10.8f370055.js"><link rel="prefetch" href="/vuepress-docs/assets/js/100.ea5c958b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/101.807d461a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/102.442f8b85.js"><link rel="prefetch" href="/vuepress-docs/assets/js/103.3f4368c8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/104.f0ca632d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/105.c39979ed.js"><link rel="prefetch" href="/vuepress-docs/assets/js/106.a8ccf6a2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/107.ec1fc67d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/108.a2f48774.js"><link rel="prefetch" href="/vuepress-docs/assets/js/109.49fa6f89.js"><link rel="prefetch" href="/vuepress-docs/assets/js/11.d055cfd7.js"><link rel="prefetch" href="/vuepress-docs/assets/js/110.fd2c670a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/111.7211cd97.js"><link rel="prefetch" href="/vuepress-docs/assets/js/112.415345e2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/113.49ae0a36.js"><link rel="prefetch" href="/vuepress-docs/assets/js/114.e7685975.js"><link rel="prefetch" href="/vuepress-docs/assets/js/115.e160440f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/116.cfaca157.js"><link rel="prefetch" href="/vuepress-docs/assets/js/117.031677e2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/118.be3fbf19.js"><link rel="prefetch" href="/vuepress-docs/assets/js/119.2c041fbf.js"><link rel="prefetch" href="/vuepress-docs/assets/js/12.0c768e80.js"><link rel="prefetch" href="/vuepress-docs/assets/js/120.2d03027f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/121.ec6be414.js"><link rel="prefetch" href="/vuepress-docs/assets/js/122.77591ef5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/123.708d0a43.js"><link rel="prefetch" href="/vuepress-docs/assets/js/124.48f19fd4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/125.513bde6c.js"><link rel="prefetch" href="/vuepress-docs/assets/js/126.a78b47e4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/127.ffa14951.js"><link rel="prefetch" href="/vuepress-docs/assets/js/128.edf820c0.js"><link rel="prefetch" href="/vuepress-docs/assets/js/129.65eb8593.js"><link rel="prefetch" href="/vuepress-docs/assets/js/13.182a7155.js"><link rel="prefetch" href="/vuepress-docs/assets/js/130.f43991fa.js"><link rel="prefetch" href="/vuepress-docs/assets/js/131.4ec19b2d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/132.10f56db1.js"><link rel="prefetch" href="/vuepress-docs/assets/js/133.4687efb9.js"><link rel="prefetch" href="/vuepress-docs/assets/js/134.05fcad87.js"><link rel="prefetch" href="/vuepress-docs/assets/js/135.15cc3192.js"><link rel="prefetch" href="/vuepress-docs/assets/js/136.b0727e5d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/137.65a815d6.js"><link rel="prefetch" href="/vuepress-docs/assets/js/138.3dbeadcd.js"><link rel="prefetch" href="/vuepress-docs/assets/js/139.b836b6b8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/14.06129052.js"><link rel="prefetch" href="/vuepress-docs/assets/js/140.ce544405.js"><link rel="prefetch" href="/vuepress-docs/assets/js/141.c21eb4b5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/142.6e74ed57.js"><link rel="prefetch" href="/vuepress-docs/assets/js/143.b2b177ba.js"><link rel="prefetch" href="/vuepress-docs/assets/js/144.a0f23aaf.js"><link rel="prefetch" href="/vuepress-docs/assets/js/145.5d82340e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/146.269f7d88.js"><link rel="prefetch" href="/vuepress-docs/assets/js/147.50719124.js"><link rel="prefetch" href="/vuepress-docs/assets/js/148.7fb3befc.js"><link rel="prefetch" href="/vuepress-docs/assets/js/149.3aea19bd.js"><link rel="prefetch" href="/vuepress-docs/assets/js/15.13bd3305.js"><link rel="prefetch" href="/vuepress-docs/assets/js/150.a43d227f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/151.7e1942fb.js"><link rel="prefetch" href="/vuepress-docs/assets/js/152.4d54ae0b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/153.d202df89.js"><link rel="prefetch" href="/vuepress-docs/assets/js/154.a3c883ff.js"><link rel="prefetch" href="/vuepress-docs/assets/js/155.6542d5d3.js"><link rel="prefetch" href="/vuepress-docs/assets/js/156.bb64a492.js"><link rel="prefetch" href="/vuepress-docs/assets/js/157.9453da4d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/158.1c676f5a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/159.865b58fb.js"><link rel="prefetch" href="/vuepress-docs/assets/js/16.87a2abca.js"><link rel="prefetch" href="/vuepress-docs/assets/js/160.4bb4680e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/161.722c9e7e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/162.e070ee82.js"><link rel="prefetch" href="/vuepress-docs/assets/js/163.fc9b41e2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/164.8edb6f20.js"><link rel="prefetch" href="/vuepress-docs/assets/js/165.eb1ed417.js"><link rel="prefetch" href="/vuepress-docs/assets/js/166.e1722521.js"><link rel="prefetch" href="/vuepress-docs/assets/js/167.e92f451f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/168.a89a0b30.js"><link rel="prefetch" href="/vuepress-docs/assets/js/169.05727e89.js"><link rel="prefetch" href="/vuepress-docs/assets/js/17.5d44887e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/170.0663a784.js"><link rel="prefetch" href="/vuepress-docs/assets/js/171.c4d9bdc8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/172.e0248a57.js"><link rel="prefetch" href="/vuepress-docs/assets/js/173.2affa5f3.js"><link rel="prefetch" href="/vuepress-docs/assets/js/174.3b9db754.js"><link rel="prefetch" href="/vuepress-docs/assets/js/175.d83bf956.js"><link rel="prefetch" href="/vuepress-docs/assets/js/176.668a9861.js"><link rel="prefetch" href="/vuepress-docs/assets/js/177.441282f6.js"><link rel="prefetch" href="/vuepress-docs/assets/js/178.061fbbdf.js"><link rel="prefetch" href="/vuepress-docs/assets/js/179.30766b43.js"><link rel="prefetch" href="/vuepress-docs/assets/js/18.9adce930.js"><link rel="prefetch" href="/vuepress-docs/assets/js/180.bc71c38b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/181.8ceb65d6.js"><link rel="prefetch" href="/vuepress-docs/assets/js/182.3aec7a40.js"><link rel="prefetch" href="/vuepress-docs/assets/js/183.8614f01d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/184.decc0d57.js"><link rel="prefetch" href="/vuepress-docs/assets/js/185.4f66a89d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/186.38174925.js"><link rel="prefetch" href="/vuepress-docs/assets/js/187.3bc8501f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/188.bb85b91b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/189.bf83aa70.js"><link rel="prefetch" href="/vuepress-docs/assets/js/19.a59f8388.js"><link rel="prefetch" href="/vuepress-docs/assets/js/190.31ae590d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/191.6f9baa5d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/192.4aeb04a4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/193.9bda722e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/194.d8e9bb42.js"><link rel="prefetch" href="/vuepress-docs/assets/js/195.b0ae13b2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/196.2b5c2cc8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/197.ffe9c27d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/198.e4a2c176.js"><link rel="prefetch" href="/vuepress-docs/assets/js/199.b0635174.js"><link rel="prefetch" href="/vuepress-docs/assets/js/20.f09c8a10.js"><link rel="prefetch" href="/vuepress-docs/assets/js/200.62bf9e78.js"><link rel="prefetch" href="/vuepress-docs/assets/js/201.9736fc3c.js"><link rel="prefetch" href="/vuepress-docs/assets/js/202.648dc0da.js"><link rel="prefetch" href="/vuepress-docs/assets/js/203.860a6d5a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/204.f859aaf5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/205.66f47678.js"><link rel="prefetch" href="/vuepress-docs/assets/js/206.844ec070.js"><link rel="prefetch" href="/vuepress-docs/assets/js/207.d0adf397.js"><link rel="prefetch" href="/vuepress-docs/assets/js/208.865f0262.js"><link rel="prefetch" href="/vuepress-docs/assets/js/209.7f6301db.js"><link rel="prefetch" href="/vuepress-docs/assets/js/21.e8589843.js"><link rel="prefetch" href="/vuepress-docs/assets/js/210.6469d323.js"><link rel="prefetch" href="/vuepress-docs/assets/js/211.6ee5d8b1.js"><link rel="prefetch" href="/vuepress-docs/assets/js/212.fbb58fad.js"><link rel="prefetch" href="/vuepress-docs/assets/js/213.9b60b2e0.js"><link rel="prefetch" href="/vuepress-docs/assets/js/214.cd2e1ed2.js"><link rel="prefetch" href="/vuepress-docs/assets/js/215.3ee74127.js"><link rel="prefetch" href="/vuepress-docs/assets/js/216.387e2b38.js"><link rel="prefetch" href="/vuepress-docs/assets/js/217.08fa621c.js"><link rel="prefetch" href="/vuepress-docs/assets/js/218.e1343256.js"><link rel="prefetch" href="/vuepress-docs/assets/js/219.d661bf15.js"><link rel="prefetch" href="/vuepress-docs/assets/js/22.c6c9b10d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/23.0edd19f6.js"><link rel="prefetch" href="/vuepress-docs/assets/js/24.f422c56a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/25.49af8b34.js"><link rel="prefetch" href="/vuepress-docs/assets/js/26.b978853a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/27.ee206f0e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/28.b00dd233.js"><link rel="prefetch" href="/vuepress-docs/assets/js/29.822c1759.js"><link rel="prefetch" href="/vuepress-docs/assets/js/30.636f9d9d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/31.411e896f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/32.44bf346f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/33.9dad30f9.js"><link rel="prefetch" href="/vuepress-docs/assets/js/34.b75726a5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/35.88346acf.js"><link rel="prefetch" href="/vuepress-docs/assets/js/36.ea73ffd3.js"><link rel="prefetch" href="/vuepress-docs/assets/js/37.c06f1068.js"><link rel="prefetch" href="/vuepress-docs/assets/js/38.d28bbfd5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/39.dcb098ed.js"><link rel="prefetch" href="/vuepress-docs/assets/js/4.233fcf65.js"><link rel="prefetch" href="/vuepress-docs/assets/js/40.84ec80cc.js"><link rel="prefetch" href="/vuepress-docs/assets/js/41.f568b7de.js"><link rel="prefetch" href="/vuepress-docs/assets/js/42.ec6a360f.js"><link rel="prefetch" href="/vuepress-docs/assets/js/43.83acfd41.js"><link rel="prefetch" href="/vuepress-docs/assets/js/44.ac6cc37d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/45.8c5daf97.js"><link rel="prefetch" href="/vuepress-docs/assets/js/46.4318cf15.js"><link rel="prefetch" href="/vuepress-docs/assets/js/47.02d13052.js"><link rel="prefetch" href="/vuepress-docs/assets/js/48.9aaed10a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/49.cc47f005.js"><link rel="prefetch" href="/vuepress-docs/assets/js/5.1da215e4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/50.3d9d1d94.js"><link rel="prefetch" href="/vuepress-docs/assets/js/51.fc6db28c.js"><link rel="prefetch" href="/vuepress-docs/assets/js/53.1a22b638.js"><link rel="prefetch" href="/vuepress-docs/assets/js/54.a76d396d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/55.88413341.js"><link rel="prefetch" href="/vuepress-docs/assets/js/56.0a46f956.js"><link rel="prefetch" href="/vuepress-docs/assets/js/57.00f7c593.js"><link rel="prefetch" href="/vuepress-docs/assets/js/58.8859dba7.js"><link rel="prefetch" href="/vuepress-docs/assets/js/59.b29fca4d.js"><link rel="prefetch" href="/vuepress-docs/assets/js/6.22f76cad.js"><link rel="prefetch" href="/vuepress-docs/assets/js/60.c8d9bf16.js"><link rel="prefetch" href="/vuepress-docs/assets/js/61.65bd1cab.js"><link rel="prefetch" href="/vuepress-docs/assets/js/62.d9c88cdf.js"><link rel="prefetch" href="/vuepress-docs/assets/js/63.5e919f0a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/64.84bb4ca4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/65.f31ab180.js"><link rel="prefetch" href="/vuepress-docs/assets/js/66.0e817ae8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/67.b4568ddd.js"><link rel="prefetch" href="/vuepress-docs/assets/js/68.92c11d4a.js"><link rel="prefetch" href="/vuepress-docs/assets/js/69.fa844a89.js"><link rel="prefetch" href="/vuepress-docs/assets/js/7.39be7014.js"><link rel="prefetch" href="/vuepress-docs/assets/js/70.f052486e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/71.7906e213.js"><link rel="prefetch" href="/vuepress-docs/assets/js/72.5cfeca84.js"><link rel="prefetch" href="/vuepress-docs/assets/js/73.3f8aae96.js"><link rel="prefetch" href="/vuepress-docs/assets/js/74.99f3ba17.js"><link rel="prefetch" href="/vuepress-docs/assets/js/75.f34781cd.js"><link rel="prefetch" href="/vuepress-docs/assets/js/76.61fcbc01.js"><link rel="prefetch" href="/vuepress-docs/assets/js/77.540c3e87.js"><link rel="prefetch" href="/vuepress-docs/assets/js/78.b94b0377.js"><link rel="prefetch" href="/vuepress-docs/assets/js/79.91cae24e.js"><link rel="prefetch" href="/vuepress-docs/assets/js/8.43c14413.js"><link rel="prefetch" href="/vuepress-docs/assets/js/80.7911f1d6.js"><link rel="prefetch" href="/vuepress-docs/assets/js/81.54a78c39.js"><link rel="prefetch" href="/vuepress-docs/assets/js/82.15a97018.js"><link rel="prefetch" href="/vuepress-docs/assets/js/83.67be79c8.js"><link rel="prefetch" href="/vuepress-docs/assets/js/84.91fd0381.js"><link rel="prefetch" href="/vuepress-docs/assets/js/85.d06c9c61.js"><link rel="prefetch" href="/vuepress-docs/assets/js/86.565cc6cb.js"><link rel="prefetch" href="/vuepress-docs/assets/js/87.4f34f3e5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/88.44b3cdaa.js"><link rel="prefetch" href="/vuepress-docs/assets/js/89.686347d5.js"><link rel="prefetch" href="/vuepress-docs/assets/js/9.5ed9c2e4.js"><link rel="prefetch" href="/vuepress-docs/assets/js/90.b2487775.js"><link rel="prefetch" href="/vuepress-docs/assets/js/91.d8f9060b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/92.cb829888.js"><link rel="prefetch" href="/vuepress-docs/assets/js/93.ce98ad84.js"><link rel="prefetch" href="/vuepress-docs/assets/js/94.54624e91.js"><link rel="prefetch" href="/vuepress-docs/assets/js/95.bc194d2c.js"><link rel="prefetch" href="/vuepress-docs/assets/js/96.4d73dad0.js"><link rel="prefetch" href="/vuepress-docs/assets/js/97.3d95b28b.js"><link rel="prefetch" href="/vuepress-docs/assets/js/98.72a37700.js"><link rel="prefetch" href="/vuepress-docs/assets/js/99.dfa66345.js">
+    <link rel="stylesheet" href="/vuepress-docs/assets/css/0.styles.38e80b41.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Hi! CC自习室</h3> <p class="description" data-v-59e6cb88>这是我的第一个 VuePress 站点</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>lizhiwei09</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepress-docs/" class="home-link router-link-active"><img src="/vuepress-docs/logo1.png" alt="Hi! CC自习室" class="logo"> <span class="site-name">Hi! CC自习室</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepress-docs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      类目
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/影片/" class="nav-link"><i class="undefined"></i>
+  影片
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/书籍/" class="nav-link"><i class="undefined"></i>
+  书籍
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/商业/" class="nav-link"><i class="undefined"></i>
+  商业
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/网站/" class="nav-link"><i class="undefined"></i>
+  网站
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/摄影/" class="nav-link"><i class="undefined"></i>
+  摄影
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/后端/" class="nav-link"><i class="undefined"></i>
+  后端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/服务端/" class="nav-link"><i class="undefined"></i>
+  服务端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/计算机网络/" class="nav-link"><i class="undefined"></i>
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/经典面试题/" class="nav-link"><i class="undefined"></i>
+  经典面试题
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/源码分析/" class="nav-link"><i class="undefined"></i>
+  源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/信息安全/" class="nav-link"><i class="undefined"></i>
+  信息安全
+</a></li></ul></div></div><div class="nav-item"><a href="/vuepress-docs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      大前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/es6/" class="nav-link"><i class="undefined"></i>
+  ES6-11
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/typescript/" class="nav-link router-link-active"><i class="undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/nodejs/" class="nav-link"><i class="undefined"></i>
+  NodeJS
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/request/" class="nav-link"><i class="undefined"></i>
+  异步请求
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/webpack/" class="nav-link"><i class="undefined"></i>
+  WebPack5
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/react/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/wxapp/" class="nav-link"><i class="undefined"></i>
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/data-visual/" class="nav-link"><i class="undefined"></i>
+  数据可视化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-three"></i>
+      Python全栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/web/" class="nav-link"><i class="undefined"></i>
+  Python-Web
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/spider/" class="nav-link"><i class="undefined"></i>
+  Python-爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/database/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      信息安全
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/safe/stone/" class="nav-link"><i class="undefined"></i>
+  磐石计划
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      价值积累
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/list/" class="nav-link"><i class="undefined"></i>
+  观读列表
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/textType/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/mediaType/" class="nav-link"><i class="undefined"></i>
+  课程笔记
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/tecnType/" class="nav-link"><i class="undefined"></i>
+  技术笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/vuepress-docs/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    lizhiwei09
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>194</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>154</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/vuepress-docs/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      类目
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/影片/" class="nav-link"><i class="undefined"></i>
+  影片
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/书籍/" class="nav-link"><i class="undefined"></i>
+  书籍
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/商业/" class="nav-link"><i class="undefined"></i>
+  商业
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/网站/" class="nav-link"><i class="undefined"></i>
+  网站
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/摄影/" class="nav-link"><i class="undefined"></i>
+  摄影
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/后端/" class="nav-link"><i class="undefined"></i>
+  后端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/服务端/" class="nav-link"><i class="undefined"></i>
+  服务端
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/计算机网络/" class="nav-link"><i class="undefined"></i>
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/经典面试题/" class="nav-link"><i class="undefined"></i>
+  经典面试题
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/源码分析/" class="nav-link"><i class="undefined"></i>
+  源码分析
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/数据库/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/categories/信息安全/" class="nav-link"><i class="undefined"></i>
+  信息安全
+</a></li></ul></div></div><div class="nav-item"><a href="/vuepress-docs/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      大前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/es6/" class="nav-link"><i class="undefined"></i>
+  ES6-11
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/typescript/" class="nav-link router-link-active"><i class="undefined"></i>
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/nodejs/" class="nav-link"><i class="undefined"></i>
+  NodeJS
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/request/" class="nav-link"><i class="undefined"></i>
+  异步请求
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/webpack/" class="nav-link"><i class="undefined"></i>
+  WebPack5
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/react/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/wxapp/" class="nav-link"><i class="undefined"></i>
+  小程序
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/fe/data-visual/" class="nav-link"><i class="undefined"></i>
+  数据可视化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-three"></i>
+      Python全栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/web/" class="nav-link"><i class="undefined"></i>
+  Python-Web
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/spider/" class="nav-link"><i class="undefined"></i>
+  Python-爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/python/database/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      信息安全
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/safe/stone/" class="nav-link"><i class="undefined"></i>
+  磐石计划
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-menu"></i>
+      价值积累
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/list/" class="nav-link"><i class="undefined"></i>
+  观读列表
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/textType/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/mediaType/" class="nav-link"><i class="undefined"></i>
+  课程笔记
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-docs/books/tecnType/" class="nav-link"><i class="undefined"></i>
+  技术笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><a href="/vuepress-docs/fe/typescript/" aria-current="page" class="sidebar-link">TypeScript学习结构</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ts入门</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ts面向对象</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>TS实现简单的贪吃蛇游戏</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-docs/fe/typescript/game/start.html" class="sidebar-link">整体结构</a></li><li><a href="/vuepress-docs/fe/typescript/game/staticHtml.html" class="sidebar-link">实现整个游戏的静态页面</a></li><li><a href="/vuepress-docs/fe/typescript/game/less.html" class="sidebar-link">实现静态页面的样式</a></li><li><a href="/vuepress-docs/fe/typescript/game/ts.html" aria-current="page" class="active sidebar-link">使用Ts面向对象实现游戏逻辑</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ts读书笔记</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>使用Ts面向对象实现游戏逻辑</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>lizhiwei09</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">使用Ts面向对象实现游戏逻辑</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>lizhiwei09</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2/6/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>typescript</span><span class="tag-item" data-v-8a445198>面向对象</span><span class="tag-item" data-v-8a445198>游戏</span></i></div></div> <div class="theme-reco-content content__default"><p>我们将所有的类都放在<code>src</code>目录下的<code>module</code>目录中，于是，当前我们的项目结构变成了这样：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>├── snake
+│   ├── src
+│   │    ├── modules
+│   │    │     └── Food.ts
+│   │    │     └── ScorePanel.ts
+│   │    │     └── Snake.ts
+│   │    │     └── GameControl.ts
+│   │    ├── index.html
+│   │    ├── index.ts
+│   │    └── style
+│   │          └── index.less
+│   ├── webpack.config.js
+│   ├── tsconfig.json
+│   └── package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="实现食物类-food-ts"><a href="#实现食物类-food-ts" class="header-anchor">#</a> 实现食物类-<code>Food.ts</code></h2> <div class="custom-block tip"><p class="title"></p><p>Food类的设计注意点：</p> <ul><li>对于食物来说，一个食物就是一个<code>div</code>，所以我们需要定义一个<code>element</code>属性来表示食物对应的<code>div</code>。</li> <li>修改食物的位置，需要随机修改<code>element</code>的<code>left</code>和<code>top</code>属性。但食物的随机坐标范围是有范围的。</li> <li>蛇的 上偏移量<code>top</code> 和 左偏移量<code>left</code> 与食物的 上偏移量<code>top</code> 和 左偏移量<code>left</code>相等时，即蛇吃到食物。</li></ul></div><div class="custom-block tip"><p class="title"></p><p>知识点：</p> <ul><li><code>element</code>是一个<code>div</code>，所以该属性的类型是<code>HTMLElement</code> <ul><li><code>HTMLElement</code>是一个接口，表示一个<code>html</code>元素</li></ul></li> <li><code>Math.round()</code>——四舍五入取整</li> <li><code>Math.random()</code>——生成0-1之间的随机数</li></ul></div><div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 定义食物类Food：对于一个类来说，要定义它的属性和方法</span>
+<span class="token keyword">class</span> <span class="token class-name">Food</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 对于食物来说，每一个食物，就是一个id=food的div</span>
+    <span class="token comment">// 定义一个属性表示食物所对应的元素</span>
+    element<span class="token operator">:</span> HTMLElement<span class="token punctuation">;</span>
+    
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 获取页面中的food元素， 并将其赋值给element</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;food&quot;</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span> <span class="token comment">// !表示不会为空</span>
+    <span class="token punctuation">}</span>
+     
+    <span class="token comment">// 定义获取食物X轴坐标的方法</span>
+    <span class="token keyword">get</span> <span class="token constant">X</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// 定义获取食物Y轴坐标的方法</span>
+    <span class="token keyword">get</span> <span class="token constant">Y</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// 修改食物位置的方法</span>
+    <span class="token function">changeFoodPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 生成一个随机的位置</span>
+        <span class="token comment">// 食物上top偏移：位置最小是0，最大是stage宽340 - 食物的宽10 = 330</span>
+        <span class="token comment">// 食物左left偏移：位置最小是0，最大是stage宽270 - 食物的宽10 = 260</span>
+        <span class="token comment">// 蛇移动一次就是一格，一格的大小就是10，所以食物的坐标必须是整10</span>
+        <span class="token keyword">let</span> topY <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">33</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> leftX <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">26</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> topY <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> leftX <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Food<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h2 id="_2-实现积分面板类-scorepanel-ts"><a href="#_2-实现积分面板类-scorepanel-ts" class="header-anchor">#</a> 2. 实现积分面板类-<code>ScorePanel.ts</code></h2> <div class="custom-block tip"><p class="title"></p><p>ScorePanel类的设计注意点：</p> <ul><li>对于等级和分数来说，都是一个<code>div</code>，所以我们需要定义一个<code>element</code>属性来表示分数对应的<code>div</code>。</li> <li>修改分数和等级，需要修改<code>element</code>的<code>innerHTML</code>属性。</li> <li>分数和等级的变化是有规律的，分数每增加10，等级就增加1。而由于等级的变化会影响到蛇的移动速度，所以我们的等级不能没有上限，我们设置等级的上限为10。</li> <li>但是在写代码时，我们尽量少使用10这种数字字面量，而是使用传参的方式，这样可以使代码更加灵活。</li></ul></div><div class="custom-block tip"><p class="title"></p><p>知识点：</p> <ul><li><code>innerHTML</code>是一个属性，几乎所有的元素都有<code>innerHTML</code>属性，它是一个字符串，用来设置或获取位于对象起始和结束标签内的HTML。
+<ul><li><code>innerHTML</code>和<code>innerText</code>的区别：<code>innerText</code>只能设置元素的文本内容，不能设置元素的标签内容.</li></ul></li></ul></div><div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 定义积分面板类ScorePanel</span>
+<span class="token keyword">class</span> <span class="token class-name">ScorePanel</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 定义一个属性：表示分数，初始值为0</span>
+    score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定义一个属性：表示等级，初始值为1</span>
+    level <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 分数和等级所在的元素，在构造函数中进行初始化</span>
+    <span class="token comment">// 定义一个属性：表示分数所在的div元素</span>
+    scoreEle<span class="token operator">:</span> HTMLElement<span class="token punctuation">;</span> 
+    <span class="token comment">// 定义一个属性，表示等级所在的div元素</span>
+    levelEle<span class="token operator">:</span> HTMLElement<span class="token punctuation">;</span>
+
+    <span class="token comment">// 在写代码时，我们尽量少使用字面量，而是使用传参的方式，这样可以使代码更加灵活。</span>
+    maxLevel<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 最大等级</span>
+    upScore<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> <span class="token comment">// 每多少分会升一级</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span>maxLevel<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> upScore<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 初始化分数和等级所在的元素</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>scoreEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;score&quot;</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>levelEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;level&quot;</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>maxLevel <span class="token operator">=</span> maxLevel<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>upScore <span class="token operator">=</span> upScore<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 定义一个加分的方法</span>
+    <span class="token function">addScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 使score自增</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>score<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将score的值显示在页面中</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>scoreEle<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>score <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">;</span> <span class="token comment">// 为了保证类型一致，这里要加一个空字符串拼成字符串</span>
+        <span class="token comment">// 判断分数是否达到升级的条件：每upScore分升一级</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>score <span class="token operator">%</span> <span class="token keyword">this</span><span class="token punctuation">.</span>upScore <span class="token operator">===</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">levelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 定义一个升级的方法</span>
+    <span class="token function">levelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 设置一个等级的最大值为maxLevel</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>level <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>maxLevel<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>level<span class="token operator">++</span><span class="token punctuation">;</span> 
+            <span class="token keyword">this</span><span class="token punctuation">.</span>levelEle<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>level <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> ScorePanel<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><h2 id="_3-实现蛇类-snake-ts"><a href="#_3-实现蛇类-snake-ts" class="header-anchor">#</a> 3. 实现蛇类-<code>Snake.ts</code></h2> <div class="custom-block tip"><p class="title"></p><p>Snake类的设计注意点：</p> <ul><li><code>id=snake</code>这个元素只是蛇的容器，它包括了每一节<code>div</code>表示的蛇的每一节身体</li> <li>在蛇中，蛇需要会长长，所以我们需要定义增加蛇身体方法，每多一个div标签，就是多一节蛇身。</li> <li>蛇身长长的规则也需要定义：后一节身体，要到前一节身体的位置，改身体位置的时候，一定要从后往前改：即先把最后一节的位置放到倒数第二节位置上。否则会出现覆盖的问题，导致身体位置不对</li> <li>除了实现蛇、蛇身的增加之外，在蛇移动的过程中，不允许蛇穿墙而出，不允许蛇撞自身，不允许蛇直接掉头。</li></ul></div><div class="custom-block tip"><p class="title"></p><p>知识点：</p> <ul><li><code>insertAdjacentHTML()</code>方法：向指定元素中插入指定的HTML代码:
+第一个参数表示插入的位置，有四个值：
+- <code>beforebegin</code>：在元素之前插入
+- <code>afterbegin</code>：在元素内部的第一个子元素之前插入
+- <code>beforeend</code>：在元素内部的最后一个子元素之后插入
+- <code>afterend</code>：在元素之后插入
+第二个参数表示插入的<code>HTML</code>代码</li> <li><code>querySelector()</code>方法返回的是一个<code>HTMLElement</code>类型的对象: 表示只能获取一个元素，即获取<code>id=snake</code>元素下的第一个div元素</li> <li><code>HTMLCollection</code>类型：表示获取的元素是一个集合，是会实时刷新的，比如当我们往<code>id=snake</code>元素下新加<code>div</code>时，这个集合会实时更新到。</li> <li><code>getElementsByTagName()</code>方法表示返回的是一个<code>HTMLCollection</code>类型的对象</li></ul></div><div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 定义一个蛇类</span>
+<span class="token keyword">class</span> <span class="token class-name">Snake</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 定义一个蛇头</span>
+    head<span class="token operator">:</span> HTMLElement<span class="token punctuation">;</span>
+    <span class="token comment">// 定义一个蛇的身体（包括蛇头）</span>
+    bodies<span class="token operator">:</span> HTMLCollection<span class="token punctuation">;</span>
+
+    <span class="token comment">// 获取蛇的容器id=snake的div元素</span>
+    element<span class="token operator">:</span> HTMLElement<span class="token punctuation">;</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 获取蛇的容器id=snake的div元素</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;snake&quot;</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 获取蛇头：id=snake下面的div表示蛇头</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#snake &gt; div&quot;</span><span class="token punctuation">)</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">;</span> <span class="token comment">// as类型断言：将其转换为HTMLElement类型</span>
+        
+        <span class="token comment">// 获取蛇的身体（包括蛇头）</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>bodies <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 获取蛇的坐标（蛇头坐标）</span>
+    <span class="token keyword">get</span> <span class="token constant">X</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">get</span> <span class="token constant">Y</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 设置蛇头的坐标</span>
+    <span class="token keyword">set</span> <span class="token constant">X</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 如果X方向的值没有发生变化，直接return</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 设置蛇的X坐标的合法范围（即不允许撞墙）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> value <span class="token operator">&gt;</span> <span class="token number">260</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 抛出一个异常</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;蛇撞墙了！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 修改x时，是在修改水平坐标，蛇在左右移动，蛇在向左移动时，不能向右掉头，反之亦然</span>
+        <span class="token comment">// 如果第二节身体存在，且要设置的这个值和第二节身体的水平坐标相同，说明蛇在掉头</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>offsetLeft <span class="token operator">===</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'水平方向发生了掉头'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 如果发生了掉头，让蛇向原方向继续移动</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">X</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 如果新值value大于旧值X，则说明蛇在向右走，此时发生掉头，应该使蛇继续向左走</span>
+                value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 向左走</span>
+                value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">moveBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用moveBody()方法，使蛇身体跟着移动</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> value <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkHeadBodyBang</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 检查蛇头是否撞到身体</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">set</span> <span class="token constant">Y</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 如果Y方向的值没有发生变化，直接return</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">Y</span> <span class="token operator">===</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 设置蛇的X坐标的合法范围（即不允许撞墙）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> value <span class="token operator">&gt;</span> <span class="token number">330</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 抛出一个异常</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;蛇撞墙了！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 修改y时，是在修改垂直坐标，蛇在上下移动，蛇在向上移动时，不能向下掉头，反之亦然</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>offsetTop <span class="token operator">===</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>value <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">Y</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">Y</span> <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">Y</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">moveBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用moveBody()方法，使蛇身体跟着移动</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> value <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkHeadBodyBang</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 检查蛇头是否撞到身体</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 蛇增加身体的方法: 增加蛇的身体就是在id=snake元素中新增div</span>
+    <span class="token function">addBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 向element中的最后一个子元素后添加一个&lt;div&gt;&lt;/div&gt;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">&quot;beforeend&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&lt;div&gt;&lt;/div&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 蛇身体移动的方法</span>
+    <span class="token function">moveBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/**
+         * 将后面身体的位置设置为前面身体的位置
+         * 举例子：
+         *   第4节 = 第3节的位置
+         *   第3节 = 第2节的位置
+         *   第2节 = 蛇头的位置
+         *   蛇头的位置是set X()和set Y()方法中设置的，不需要在这个方法里面设置
+         */</span>
+        <span class="token comment">// 遍历获取所有的身体：从后往前遍历</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 获取前边身体的位置 i-1</span>
+            <span class="token keyword">let</span> <span class="token constant">X</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+            <span class="token keyword">let</span> <span class="token constant">Y</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+
+            <span class="token comment">// 将值设置到当前身体上 i</span>
+            <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token constant">X</span> <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token constant">Y</span> <span class="token operator">+</span> <span class="token string">&quot;px&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 蛇有没有撞到自己：检查蛇头的坐标，和某一节身体的坐标是否重合，重合就是撞到自己了</span>
+    <span class="token comment">// 这一步需要在蛇头坐标改变后，坐标值变了之后，再检查</span>
+    <span class="token function">checkHeadBodyBang</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 获取所有的身体，检查其是否和蛇头的坐标重合</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> bd <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>bodies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">;</span> <span class="token comment">// 获取第i节身体</span>
+            <span class="token comment">// 判断蛇头的坐标和第i节身体的坐标是否重合</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">===</span> bd<span class="token punctuation">.</span>offsetLeft <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token constant">Y</span> <span class="token operator">===</span> bd<span class="token punctuation">.</span>offsetTop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 进入判断说明撞到自己了，游戏结束</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;撞到自己了！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Snake<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br></div></div><h2 id="_4-实现游戏控制类-gamecontrol-ts"><a href="#_4-实现游戏控制类-gamecontrol-ts" class="header-anchor">#</a> 4. 实现游戏控制类-GameControl.ts</h2> <p>定义好了上面三个类之后，我们需要一个类，来控制蛇、食物、分数等的逻辑，这个类就是GameControl类。</p> <ul><li>游戏的初始化</li> <li>蛇的移动
+<ul><li>监听键盘按键</li> <li>判断蛇是否吃到食物</li> <li>修改蛇的坐标</li> <li>抛出蛇撞墙死亡的异常</li> <li>通过setTimeOut()方法不断循环蛇移动的方法，并控制蛇的移动速度</li></ul></li> <li>蛇是否吃到食物
+这个类稍微有点复杂，但我在每一步都做了详细的批注，可以仔细看看</li></ul> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 引入其他类</span>
+<span class="token keyword">import</span> Food <span class="token keyword">from</span> <span class="token string">'./Food'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ScorePanel <span class="token keyword">from</span> <span class="token string">'./ScorePanel'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Snake <span class="token keyword">from</span> <span class="token string">'./Snake'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 定义游戏控制器类：用于控制其他所有类</span>
+<span class="token keyword">class</span> <span class="token class-name">GameControl</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 定义三个属性：蛇、食物、记分牌</span>
+    <span class="token comment">// 蛇</span>
+    snake<span class="token operator">:</span> Snake<span class="token punctuation">;</span>
+    <span class="token comment">// 食物</span>
+    food<span class="token operator">:</span> Food<span class="token punctuation">;</span>
+    <span class="token comment">// 记分牌</span>
+    scorePanel<span class="token operator">:</span> ScorePanel<span class="token punctuation">;</span>
+
+    <span class="token comment">// 创建一个属性来存储蛇的移动方向（也就是按键的值）</span>
+    direction<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 创建一个属性用来记录游戏是否结束</span>
+    isLive <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 默认为true，表示游戏还没结束</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>snake <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Snake</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>food <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Food</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>scorePanel <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScorePanel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 游戏初始化方法：调用后，游戏即开始</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 绑定键盘按下的事件：当keydown事件发生时，调用keydownHandler方法</span>
+        document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;keydown&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">keydownHandler</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">snakeMove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用蛇移动的方法</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 创建一个键盘按下的响应函数</span>
+    <span class="token function">keydownHandler</span><span class="token punctuation">(</span>event<span class="token operator">:</span> KeyboardEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// console.log(this); // 这里的this是document，不是GameControl：事件绑定到document上，所以this是document</span>
+        <span class="token comment">// 需要检查event.key的值是否合法（用户是否按了正确的按键）</span>
+        <span class="token comment">// 修改蛇的移动方向</span>
+        <span class="token comment">// event.key用于获取键盘按下的键值是什么，值有：上下左右ArrowUp、ArrowDown、ArrowLeft、ArrowRight，还有其他乱七八糟的afbwkqhreigu这些键等等</span>
+        <span class="token comment">// 但是在IE中，event.key的值是上下左右Up、Down、Left、Right，还有其他乱七八糟的afbwkqhreigu这些键等等</span>
+
+        <span class="token comment">// 但我们希望能修改GameControl里的direction属性，那我们怎么才能把this指到GameControl呢？</span>
+        <span class="token comment">// 所以需要在调用this.keydownHandler方法时，通过bind方法把this指向GameControl</span>
+        
+        <span class="token comment">// 此外，我们需要监听到的只有方向键，如果用户按了其他的键，不应该有反应</span>
+        <span class="token comment">// 需要检查event.key的值是否合法（用户是否按了正确的按键）</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">=</span> event<span class="token punctuation">.</span>key<span class="token punctuation">;</span> <span class="token comment">// 这里的this是GameControl，令方向 = 键盘按下的键值</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 创建一个控制蛇移动的方法：让蛇根据用户按下的方向键移动</span>
+    <span class="token function">snakeMove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/*
+        *   根据方向（this.direction）来使蛇的位置改变
+        *      向上（this.direction === ArrowUp || Up）：top 减少
+        *      向下 (this.direction === ArrowDown || Down)：top 增加
+        *      向左 (this.direction === ArrowLeft || Left)：left 减少
+        *      向右 (this.direction === ArrowRight || Right)：left 增加
+        */</span>
+
+        <span class="token comment">// 获取蛇现在坐标</span>
+        <span class="token keyword">let</span> <span class="token constant">X</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>snake<span class="token punctuation">.</span><span class="token constant">X</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> <span class="token constant">Y</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>snake<span class="token punctuation">.</span><span class="token constant">Y</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 根据按键的方向修改X值和Y值</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>direction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;ArrowUp&quot;</span><span class="token operator">:</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;Up&quot;</span><span class="token operator">:</span>
+                <span class="token comment">// 向上移动 top 减少</span>
+                <span class="token constant">Y</span> <span class="token operator">-=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;ArrowDown&quot;</span><span class="token operator">:</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;Down&quot;</span><span class="token operator">:</span>
+                <span class="token comment">// 向下移动 top 增加</span>
+                <span class="token constant">Y</span> <span class="token operator">+=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;ArrowLeft&quot;</span><span class="token operator">:</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;Left&quot;</span><span class="token operator">:</span>
+                <span class="token comment">// 向左移动 left 减少</span>
+                <span class="token constant">X</span> <span class="token operator">-=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;ArrowRight&quot;</span><span class="token operator">:</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;Right&quot;</span><span class="token operator">:</span>
+                <span class="token comment">// 向右移动 left 增加</span>
+                <span class="token constant">X</span> <span class="token operator">+=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 检查是否吃到了食物</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkEat</span><span class="token punctuation">(</span><span class="token constant">X</span><span class="token punctuation">,</span> <span class="token constant">Y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 修改蛇的X和Y值：给蛇的坐标重新赋值，蛇就会按照上面的判断逻辑对应移动</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>snake<span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">=</span> <span class="token constant">X</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>snake<span class="token punctuation">.</span><span class="token constant">Y</span> <span class="token operator">=</span> <span class="token constant">Y</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 进入到catch，说明出现了异常-游戏结束，弹出一个提示信息</span>
+            <span class="token function">alert</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message <span class="token operator">+</span> <span class="token string">&quot; GAME OVER!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 将isLive设置为false，这游戏就死了</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>isLive <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 开启一个定时调用，为了能让蛇不断移动起来</span>
+        <span class="token comment">// 每隔（ 300 - (this.scorePanel.level - 1) * 30 ）毫秒 调用一次snakeMove方法</span>
+        <span class="token comment">// 随着scorePanel类中记分板中等级的提升，移动速度越来越快</span>
+        <span class="token comment">// 当游戏没有结束的时候，才能继续调用snakeMove方法</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isLive <span class="token operator">&amp;&amp;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">snakeMove</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">300</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>scorePanel<span class="token punctuation">.</span>level <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 定义一个方法检查蛇是否吃到了食物</span>
+    <span class="token function">checkEat</span> <span class="token punctuation">(</span><span class="token constant">X</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token constant">Y</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 检查蛇头的坐标是否和食物的坐标重合</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">X</span> <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>food<span class="token punctuation">.</span><span class="token constant">X</span> <span class="token operator">&amp;&amp;</span> <span class="token constant">Y</span> <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>food<span class="token punctuation">.</span><span class="token constant">Y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 食物的位置要进行重置</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>food<span class="token punctuation">.</span><span class="token function">changeFoodPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 分数增加</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>scorePanel<span class="token punctuation">.</span><span class="token function">addScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 蛇要增加一节</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>snake<span class="token punctuation">.</span><span class="token function">addBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> GameControl<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br></div></div><h2 id="在src-index-ts中创建gamecontrol对象-使游戏开始"><a href="#在src-index-ts中创建gamecontrol对象-使游戏开始" class="header-anchor">#</a> 在<code>src/index.ts</code>中创建<code>GameControl</code>对象，使游戏开始</h2> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// 引入样式</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./style/index.less&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 引入GameControl类</span>
+<span class="token keyword">import</span> GameControl <span class="token keyword">from</span> <span class="token string">&quot;./modules/GameControl&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">GameControl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="最终游戏效果展示"><a href="#最终游戏效果展示" class="header-anchor">#</a> 最终游戏效果展示</h2> <img src="/vuepress-docs/assets/img/snakeGame.29f53808.gif" alt="贪吃蛇整体设计图" style="zoom:50%;"> <h2 id="项目github地址"><a href="#项目github地址" class="header-anchor">#</a> 项目Github地址</h2> <p><a href="https://github.com/Fancy911/snake-game/tree/main/src" target="_blank" rel="noopener noreferrer">Github-贪吃蛇项目<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">7/19/2023, 6:52:45 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/vuepress-docs/fe/typescript/game/less.html" class="prev">
+          实现静态页面的样式
+        </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#实现食物类-food-ts" class="sidebar-link reco-side-实现食物类-food-ts" data-v-b57cc07c>实现食物类-Food.ts</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#_2-实现积分面板类-scorepanel-ts" class="sidebar-link reco-side-_2-实现积分面板类-scorepanel-ts" data-v-b57cc07c>2. 实现积分面板类-ScorePanel.ts</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#_3-实现蛇类-snake-ts" class="sidebar-link reco-side-_3-实现蛇类-snake-ts" data-v-b57cc07c>3. 实现蛇类-Snake.ts</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#_4-实现游戏控制类-gamecontrol-ts" class="sidebar-link reco-side-_4-实现游戏控制类-gamecontrol-ts" data-v-b57cc07c>4. 实现游戏控制类-GameControl.ts</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#在src-index-ts中创建gamecontrol对象-使游戏开始" class="sidebar-link reco-side-在src-index-ts中创建gamecontrol对象-使游戏开始" data-v-b57cc07c>在src/index.ts中创建GameControl对象，使游戏开始</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#最终游戏效果展示" class="sidebar-link reco-side-最终游戏效果展示" data-v-b57cc07c>最终游戏效果展示</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-docs/fe/typescript/game/ts.html#项目github地址" class="sidebar-link reco-side-项目github地址" data-v-b57cc07c>项目Github地址</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:50px;bottom:150px;font-size:14px;opacity:0.8;color:#fff;background-color:#435dee;height:50px;display:none;" data-v-5775ee02>
+      欢迎来到
+    </div> <div class="operation" style="right:70px;bottom:36px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:-1;" data-v-248d85d6></canvas></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="http://music.163.com/song/media/outer/url?id=1493073534" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:100px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://assets.smallsunnyfox.com/music/2.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:20px;bottom:20px;width:269px;height:80px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://assets.smallsunnyfox.com/music/2.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>小摩托 (Live)</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>郁可唯</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/vuepress-docs/assets/js/app.aa48dd5e.js" defer></script><script src="/vuepress-docs/assets/js/3.fdc8566e.js" defer></script><script src="/vuepress-docs/assets/js/1.4447dbcf.js" defer></script><script src="/vuepress-docs/assets/js/52.93ea8703.js" defer></script>
+  </body>
+</html>
