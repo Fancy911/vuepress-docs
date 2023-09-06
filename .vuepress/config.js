@@ -91,7 +91,7 @@ module.exports = {
                 ],
             },
             {
-                text: '价值积累',
+                text: '能力积累',
                 icon: 'reco-menu',
                 items: [
                     {
@@ -107,8 +107,8 @@ module.exports = {
                         link: '/books/mediaType/',
                     },
                     {
-                        text: '技术笔记',
-                        link: '/books/tecnType/',
+                        text: '软考笔记',
+                        link: '/books/ruankao/',
                     },
                 ],
             },
@@ -136,7 +136,29 @@ module.exports = {
             '/books/mediaType/': [
                 '/books/mediaType/shangyehuabu',   
             ],
-            '/books/tecnType/': [],
+            '/books/ruankao/': [
+                {
+                    title: '模块1——预备知识',
+                    children: [
+                        '/books/ruankao/1-预备知识/项目管理概论',
+                        '/books/ruankao/1-预备知识/信息系统概述',
+                    ],
+                },
+                {
+                    title: '模块2——计算相关',
+                    children: [
+                        '/books/ruankao/2-计算相关/进度管理计算',
+                        '/books/ruankao/2-计算相关/信息系统概述',
+                    ],
+                },
+                {
+                    title: '模块3——立项相关',
+                    children: [
+                        '/books/ruankao/3-立项相关/立项管理',
+                        '/books/ruankao/3-立项相关/合同管理',
+                    ],
+                },
+            ],
             '/fe/webpack/': [
                 '',
                 {
